@@ -1,5 +1,10 @@
 import { memo, useEffect } from 'react';
+
 import NavBar from '../features/main/Navbar/NavBar';
+
+import { loadItems } from '../features/items/itemsSlice';
+import ItemsPage from '../features/items/ItemsPage/ItemsPage';
+
 import { useAppDispatch } from '../store';
 import './App.css'
 
@@ -7,13 +12,14 @@ function App(): JSX.Element {
   // используем useAppDispatch из store
   const dispatch = useAppDispatch();
 
-  // useEffect(() => {
-  //   // диспатчим экшен криэтор loadSuggestions, который был сгенерирован в слайсе
-  //   dispatch(loadSuggestions());
-  // }, [dispatch]);
+  useEffect(() => {
+    // диспатчим экшен криэтор loadSuggestions, который был сгенерирован в слайсе
+    dispatch(loadItems());
+  }, [dispatch]);
 
   return (
     <div>
+
       <NavBar />
       <h1>Это главная страница</h1>
       {/* <div>
@@ -22,6 +28,9 @@ function App(): JSX.Element {
       Your browser does not support the video tag.
       </video>
       </div> */}
+
+      <ItemsPage/>
+
     </div>
   );
 }
