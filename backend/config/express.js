@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const sessionConfig = require('./sessionConfig');
 const getUser = require('../middlewares/getUser');
-const ssr = require('../middlewares/ssr')
+// const ssr = require('../middlewares/ssr')
 
 function expressConfig(app) {
   // плагины - миддлварки
@@ -23,7 +23,7 @@ function expressConfig(app) {
   // app.use(express.static(path.join(__dirname, '../public')));
 
   app.use(getUser);
-  app.use(ssr);
+  // app.use(ssr);
 }
 
 module.exports = expressConfig;
