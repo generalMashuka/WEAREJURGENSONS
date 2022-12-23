@@ -9,7 +9,6 @@ try {const items = await Item.findAll({
     ['id', 'DESC'],
   ],
 });
-console.log(items);
 res.json(items)
 } catch (error) {
     res.status(501).json({ error: 'ошибка БД'})
