@@ -11,9 +11,9 @@ function NavBar(): JSX.Element {
             <nav className="header">
           <h1>Навбар</h1>
           {/* <Link to="/"><img src={logo}/></Link> */}
-          <Link to="/">О проекте</Link>
-          <Link to="/">Как купить</Link>
-          <Link to="/">Контакты</Link>
+          <Link to="/">О нас</Link>
+          <Link to="/items">Каталог</Link>
+          <Link to="/contacts">Контакты</Link>
           </nav>
         </div>
     )

@@ -1,5 +1,7 @@
 import { memo, useEffect } from 'react';
 
+import {Routes, Route} from 'react-router-dom'
+
 import NavBar from '../features/main/Navbar/NavBar';
 
 import { loadItems } from '../features/items/itemsSlice';
@@ -7,6 +9,8 @@ import ItemsPage from '../features/items/ItemsPage/ItemsPage';
 
 import { useAppDispatch } from '../store';
 import './App.css'
+import MainPage from '../features/main/MainPage/MainPage';
+import ContactsPage from '../features/contacts/ContactsPage';
 
 function App(): JSX.Element {
   // используем useAppDispatch из store
@@ -21,16 +25,12 @@ function App(): JSX.Element {
     <div>
 
       <NavBar />
-      <h1>Это главная страница</h1>
-      {/* <div>
-      <video className='video-clip' width="320" height="240" autoPlay loop muted>
-      <source src={require('./IMG_5228.webm')} type="video/mp4" />
-      Your browser does not support the video tag.
-      </video>
-      </div> */}
-
-      <ItemsPage/>
-
+      <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/items" element={<ItemsPage />} />
+      </Routes>
+     
     </div>
   );
 }
