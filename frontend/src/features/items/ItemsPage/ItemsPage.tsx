@@ -4,7 +4,6 @@ import { selectItems } from "../selectors"
 
 function ItemsPage(): JSX.Element {
   const items = useSelector(selectItems)
-  console.log(items);
   
   return (
     <div>

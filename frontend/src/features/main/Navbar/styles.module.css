@@ -1,0 +1,34 @@
+.header {
+    /* background: #b4b9b5; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    margin: auto;
+    margin-top: 46px;
+  }
+    
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .buttoncontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .titlecontainer {
+      margin-left: 395px;
+      gap: 20px;
+  }
+
+  .mainlogo {
+    margin-left: 40px;
+  }
