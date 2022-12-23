@@ -11,7 +11,7 @@ function ItemView({item}:ItemProps):JSX.Element {
           <div style={{ marginBottom: 10 }}>
           <h2>{item.name}</h2>
           <h3>{item.description}</h3>
-          <div>{item.img}</div>
+          <img src={item.img} alt="item"/>
           <div>{item.price}</div>
         </div>
     </div>
