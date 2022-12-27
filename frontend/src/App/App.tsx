@@ -23,7 +23,6 @@ function App(): JSX.Element {
 
   return (
     <div>
-
       <NavBar />
       <Routes>
           <Route path="/" element={<MainPage />} />

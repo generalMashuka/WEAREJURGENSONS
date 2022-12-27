@@ -1,0 +1,8 @@
+.videocontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.maincontiner {
+ margin-top: 50px;
+}

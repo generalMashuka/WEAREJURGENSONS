@@ -1,4 +1,8 @@
 .video-clip {
- width: 700px;
- height: 700px;
+    width: 700px;
+    height: 700px;
+}
+
+body {
+    background-color: #F6EFE7;
 }
