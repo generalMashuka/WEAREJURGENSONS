@@ -6,8 +6,7 @@ categoryRouter.get('/', async ( req, res ) => {
     try {
         const categories = await Category.findAll({
             order: [
-                ['createdAt', 'DESC'],
-                ['id', 'DESC'],
+                ['id', 'ASC'],
               ],
         });
         console.log(categories);

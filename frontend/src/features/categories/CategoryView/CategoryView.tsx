@@ -1,4 +1,6 @@
 import Category from "../types/Category";
+import styles from "./styles.module.css";
+
 
 type CategoryProps = {
   category: Category;
@@ -6,12 +8,15 @@ type CategoryProps = {
 
 function CategoryView({ category }: CategoryProps): JSX.Element {
   return (
-    <div>
-      <div style={{ marginBottom: 10 }}>
+    
+      <div className={styles.pic}>
         <img src={category.img} className="card-img" alt="..." />
-        <h2>{category.name}</h2>
+        <div className={styles.name}>
+        <p className={styles.text}>{category.name}</p>
+        </div>
+        
       </div>
-    </div>
+    
   );
 }
 
