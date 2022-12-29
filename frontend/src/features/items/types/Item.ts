@@ -3,7 +3,8 @@ type Item = {
   name:string;
   img:string;
   description:string;
-  price:number
+  price:number;
+  category_id:number;
 }
 
 export type ItemId = Item['id']

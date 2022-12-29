@@ -11,6 +11,7 @@ import { useAppDispatch } from '../store';
 import './App.css'
 import MainPage from '../features/main/MainPage/MainPage';
 import ContactsPage from '../features/contacts/ContactsPage';
+import { loadCategories } from '../features/categories/categoriesSlice';
 
 function App(): JSX.Element {
   // используем useAppDispatch из store
@@ -19,6 +20,7 @@ function App(): JSX.Element {
   useEffect(() => {
     // диспатчим экшен криэтор loadSuggestions, который был сгенерирован в слайсе
     dispatch(loadItems());
+    dispatch(loadCategories());
   }, [dispatch]);
 
   return (

@@ -1,0 +1,10 @@
+.maincontainer {
+    padding-top: 150px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 40px;
+    margin-right: 40px;
+    justify-content: space-between;
+    gap: 40px;
+}
