@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
+    static associate( { Category }) {
+      Item.belongsTo(Category, {foreignKey: 'category_id'})
     }
   }
   Item.init({
@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
   }, {

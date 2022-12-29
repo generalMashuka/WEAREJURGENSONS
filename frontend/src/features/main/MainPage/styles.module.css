@@ -1,8 +1,12 @@
 .videocontainer {
     display: flex;
     justify-content: center;
+    background: linear-gradient(to right, #F6EFE7 59%, #CBBEAF 41%);
+    margin-top: 50px;
+    margin-bottom: 102px;
 }
 
-.maincontiner {
- margin-top: 50px;
+.maincontainer {
+ background-color: white;
+ /* background-image: url('./1642908254_19-abrakadabra-fun-p-setka-tetradi-v-kletku-29.png'); */
 }
