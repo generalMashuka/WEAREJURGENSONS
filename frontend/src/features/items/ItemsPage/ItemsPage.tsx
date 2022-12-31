@@ -1,15 +1,15 @@
 import { useSelector } from "react-redux"
 import ItemView from "../ItemView/ItemView"
 import { selectItems } from "../selectors"
+import styles from "./styles.module.css"
 
 function ItemsPage(): JSX.Element {
   const items = useSelector(selectItems)
   
   return (
     <div>
-    <h1>Товары</h1>
 
-    <div>
+    <div className={styles.cards}>
       {items.map((item) => (
         <ItemView
           key={item.id}
