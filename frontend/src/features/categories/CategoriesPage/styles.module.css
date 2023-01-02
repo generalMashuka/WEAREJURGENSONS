@@ -7,4 +7,12 @@
     margin-right: 40px;
     justify-content: space-between;
     gap: 40px;
+    position: relative;
+}
+
+.star_button {
+    position: absolute;
+    z-index: 1;
+    left: -40px;
+    top: 150px;
 }
