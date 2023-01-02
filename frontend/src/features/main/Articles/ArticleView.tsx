@@ -2,8 +2,8 @@ function ArticleView():JSX.Element {
   return (
     <div>
     <div>
-    <h2>article</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam libero autem natus enim cupiditate minima quidem voluptates ipsam incidunt vero rem voluptatibus molestiae odio, quas atque nisi. Delectus, porro natus?</p>
+    <h2>О нас</h2>
+    <p>Мы- семья Юргенсон, дышим одними мечтами и планами, но живем в разных городах. Когда имеешь в распоряжении такую роскошь, как каждодневное общение с родными - не ценишь этого подарка судьбы. Лишившись же этого- осознаёшь, насколько быстро бежит время. На самом деле для счастья иногда нужно гораздо меньше, чем кажется- домашний уют и близкие рядом. Расстояние, разделяющее нас ещё ярче выявило потребность в близости, семейности, совместном времяпрепровождении. Эти думы положили начало нашему семейному бренду JURGENSØNS, названному в честь фамилии нашей семьи.</p>
     </div>
    </div> 
  )
