@@ -19,9 +19,7 @@ function NavBar(): JSX.Element {
 
         {/* <Link to="/"><img src={logo}/></Link> */}
         <div className={styles.titlecontainer}>
-          <Link className={styles.link} to="/">
-            О нас
-          </Link>
+          <a className={styles.link} href="#aboutUs">О нас</a>
           <Link to="/items">Каталог</Link>
           <Link to="/contacts">Контакты</Link>
         </div>
