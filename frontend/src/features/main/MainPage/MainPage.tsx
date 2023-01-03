@@ -1,4 +1,4 @@
-import AboutUsView from "../AboutUs/AboutUsView";
+import AboutUsView from "./AboutUs/AboutUsView";
 import CategoriesPage from "../../categories/CategoriesPage/CategoriesPage";
 import styles from "./styles.module.css";
 import starButton from "./img/star_button.svg";
