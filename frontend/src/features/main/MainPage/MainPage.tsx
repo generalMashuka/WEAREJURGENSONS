@@ -1,4 +1,4 @@
-import ArticleView from "../Articles/ArticleView";
+import ArticleView from "../../Articles/ArticleView";
 import CategoriesPage from "../../categories/CategoriesPage/CategoriesPage";
 import styles from "./styles.module.css";
 import videoPic from "./IMG_7272 1 1.svg"; // пока растянутое видео не готово - img заглушка

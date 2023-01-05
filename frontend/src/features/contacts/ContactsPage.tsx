@@ -2,8 +2,16 @@ function ContactsPage():JSX.Element {
   return (
     <div>
     <div>
-    <h2>Contacts</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam libero autem natus enim cupiditate minima quidem voluptates ipsam incidunt vero rem voluptatibus molestiae odio, quas atque nisi. Delectus, porro natus?</p>
+    <h2>Связаться с нами</h2>
+    <span>
+      instagram: @wearejurgensons
+      </span>
+      <br />
+    <span>email: wearejurgensons@gmail.com</span>
+      <br />
+     <span>
+      telegram: @wearejurgensons
+    </span>
     </div>
    </div> 
  )
