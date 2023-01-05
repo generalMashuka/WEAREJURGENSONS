@@ -28,14 +28,25 @@ overflow: hidden;
     margin: 2%;
 }
 
+.buyButton:hover {
+    background: #d7dbe3;
+  }
+
+.buyButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #bbbcc0;
+  }
+
 .buyButton {
+    margin-top: 5px;
+    height: 70%;
     -webkit-appearance: none;
     -moz-appearance: none;
          appearance: none;
     border: 0;
-    border-radius: 40%;
+    border-radius: 10%;
     background: rgb(225, 215, 215);
     color: rgb(84, 78, 78);
-    padding: 8px 16px;
-    font-size: 16px;
+    padding: 6px 14px;
+    font-size: 14px;
 }
