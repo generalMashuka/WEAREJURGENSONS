@@ -22,6 +22,7 @@ function NavBar(): JSX.Element {
           <Link className={styles.link} to="/about">
             О нас
           </Link>
+
           <Link to="/items">Каталог</Link>
           <Link to="/contacts">Контакты</Link>
         </div>
