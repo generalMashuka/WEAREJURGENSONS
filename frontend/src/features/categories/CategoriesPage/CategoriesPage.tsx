@@ -6,8 +6,7 @@ import starButton from "./star_button.svg"
 
 function CategoriesPage(): JSX.Element {
 const categories = useSelector(selectCategories)
-console.log(categories);
-
+// console.log(categories);
 
     return(
         <div>

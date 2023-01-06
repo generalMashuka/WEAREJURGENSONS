@@ -8,8 +8,13 @@ import cartPic from "./img/ShoppingCart.svg";
 import userPic from "./img/User.png";
 
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../auth/selectors";
 
 function NavBar(): JSX.Element {
+  const user = useSelector(selectUser)
+  console.log(user);
+  
   return (
     <div>
       <nav className={styles.header}>
@@ -19,6 +24,9 @@ function NavBar(): JSX.Element {
 
         {/* <Link to="/"><img src={logo}/></Link> */}
         <div className={styles.titlecontainer}>
+        { user && (
+          <div className={styles.link}>Привет, {user.name}</div>
+        )}
           <a className={styles.link} href="#aboutUs">О нас</a>
           <Link to="/items">Каталог</Link>
           <Link to="/contacts">Контакты</Link>
