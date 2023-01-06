@@ -8,7 +8,7 @@ import categoriesSlice from './features/categories/categoriesSlice';
 const store = configureStore({
   // теперь функция combineReducers не нужна
   reducer: {
-    auth: authSlice,
+     auth: authSlice,
     items: itemsSlice,
     categories: categoriesSlice,
   },

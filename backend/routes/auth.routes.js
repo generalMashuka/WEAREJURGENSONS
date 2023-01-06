@@ -41,7 +41,7 @@ authRouter.post('/register', async (req, res) => {
 
 authRouter.post('/login', async (req, res) => {
   const { name, password } = req.body;
-  const existingUser = await User.findOne({ where: { name } });
+   const existingUser = await User.findOne({ where: { name } });
 
   // проверяем, что такой пользователь есть в БД и пароли совпадают
   if (existingUser && (await bcrypt.compare(password, existingUser.password))) {

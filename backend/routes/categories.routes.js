@@ -9,7 +9,7 @@ categoryRouter.get('/', async ( req, res ) => {
                 ['id', 'ASC'],
               ],
         });
-        console.log(categories);
+        // console.log(categories);
         res.json(categories);
     } catch (error) {
         console.error(error);
