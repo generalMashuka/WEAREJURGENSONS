@@ -1,3 +1,5 @@
+
+import ArticleView from "../../Articles/ArticleView";
 import AboutUsView from "./AboutUs/AboutUsView";
 import CategoriesPage from "../../categories/CategoriesPage/CategoriesPage";
 import styles from "./styles.module.css";

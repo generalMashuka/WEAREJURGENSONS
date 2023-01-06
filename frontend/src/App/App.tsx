@@ -11,9 +11,14 @@ import ContactsPage from '../features/contacts/ContactsPage';
 import AuthPage from '../features/auth/authpage/authPage';
 
 import { loadCategories } from '../features/categories/categoriesSlice';
+
 import { loadItems } from '../features/items/itemsSlice';
 import { loginSuccess, userChecked } from '../features/auth/authSlice';
 import { selectAuthChecked } from '../features/auth/selectors';
+
+
+import AboutPage from '../features/about/AboutPage';
+import ItemPage from '../features/items/ItemPage.tsx/ItemPage';
 
 
 function App(): JSX.Element {
@@ -36,7 +41,9 @@ function App(): JSX.Element {
           <Route path="/" element={<MainPage />} />
           <Route path="/admin" element={<AuthPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/items" element={<ItemsPage />} />
+          <Route path="/items/:id" element={<ItemPage />} />
       </Routes>
     </div>
   );

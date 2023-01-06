@@ -24,10 +24,17 @@ function NavBar(): JSX.Element {
 
         {/* <Link to="/"><img src={logo}/></Link> */}
         <div className={styles.titlecontainer}>
+
         { user && (
           <div className={styles.link}>Привет, {user.name}</div>
         )}
           <a className={styles.link} href="#aboutUs">О нас</a>
+
+          <Link className={styles.link} to="/about">
+            О нас
+          </Link>
+
+
           <Link to="/items">Каталог</Link>
           <Link to="/contacts">Контакты</Link>
         </div>
