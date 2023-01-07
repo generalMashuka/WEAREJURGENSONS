@@ -28,7 +28,7 @@ function NavBar(): JSX.Element {
         { user && (
           <div className={styles.link}>Привет, {user.name}</div>
         )}
-          <a className={styles.link} href="#aboutUs">О нас</a>
+          {/* <a className={styles.link} href="#aboutUs">О нас</a> */}
 
           <Link className={styles.link} to="/about">
             О нас
