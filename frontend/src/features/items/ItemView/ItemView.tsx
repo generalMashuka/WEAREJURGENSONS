@@ -36,7 +36,7 @@ function ItemView({ item, onRemove  }: ItemProps): JSX.Element {
         </div>
         <img src={item.img} className={styles.img} alt="..." />
         <div className={styles.btnBox}>
-          { user && <button type="button" onClick={handleRemove} className={styles.btn}>Удалить</button>}
+        <button type="button" onClick={handleRemove} className={styles.btn}>Удалить</button>
           <button type="button"  className={styles.btn}>Редактировать</button>
         </div>
       </div>

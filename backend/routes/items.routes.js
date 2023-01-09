@@ -11,7 +11,7 @@ try {const items = await Item.findAll({
 });
 res.json(items)
 } catch (error) {
-    res.status(501).json({ error: 'ошибка БД'})
+    res.status(501).json({ error: 'ошибка БД при загрузке товаров на странцу'})
   }
 });
 
@@ -36,5 +36,32 @@ itemsRouter.delete('/:id', async (req, res) => {
   }
 });
 
+itemsRouter.post('/', async ( req, res ) => {
+  try {
+    const { name, price, img, description, category_id } = req.body
+    if ( !name.trim() || !price || !img.trim() || !description.trim() ) {
+      return res.status(422).json({ error: 'Заполните все поля' });
+    }
+    if ( typeof(req.body.price) !== "number" ) {
+      return res.status(422).json( { error: "Цена должна быть числом"})
+    }
+  
+    const newItem = await Item.create(
+      {
+        name: req.body.name,
+        price: req.body.price,
+        img: req.body.img,
+        description: req.body.description,
+        category_id: req.body.category_id,
+          }
+    );
+  
+    return res.status(201).json(newItem);
+  } catch ( error) {
+    res.status(501).json({error: 'ошибка БД при создании товара'})
+    console.log(error);
+  }
+
+})
 
 module.exports = itemsRouter;

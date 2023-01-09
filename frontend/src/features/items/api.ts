@@ -24,3 +24,20 @@ export async function deleteItem (id: ItemId): Promise<number> {
   }
 }
 
+export async function createItem (item: Item): Promise<Item> {
+  const response = await fetch ('api/items', {
+    method: 'POST',
+    body: JSON.stringify(item),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+
+  if (response.status >= 400) {
+    const { error } = await response.json();
+    throw error;
+  }
+  
+  return response.json();
+}
+

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import ItemsState from './types/State';
 import * as api from './api';
-import { ItemId } from './types/Item';
+import Item, { ItemId } from './types/Item';
 
 // 1. начальное состояние
 const initialState: ItemsState = {
@@ -23,7 +23,15 @@ export const loadItems = createAsyncThunk(
 export const itemDeleted = createAsyncThunk(
   'items/itemDeleted',
   async(id: ItemId) => {
- return await api.deleteItem(id)
+ await api.deleteItem(id)
+ return id;
+  }
+)
+
+export const itemCreated = createAsyncThunk(
+  'items/itemCreated',
+  async(item: Item) => {
+return await api.createItem(item)
   }
 )
 
@@ -47,9 +55,18 @@ const itemsSlice = createSlice({
         // в action.error попадёт ошибка сгенерированная санком
         state.loadError = action.error.message;
       })
-      .addCase( itemDeleted.fulfilled, ( state, action) => {
+      .addCase( itemDeleted.fulfilled, ( state, action ) => {
           state.items = state.items.filter((item) => item.id !== action.payload)
       })
+      .addCase(itemDeleted.rejected, ( state, action)  => {
+        state.loadError = action.error.message;
+      })
+      .addCase( itemCreated.fulfilled, ( state, action ) => {
+        state.items.push(action.payload)
+    })
+    .addCase(itemCreated.rejected, (state, action) => {
+      state.loadError = action.error.message
+    })
   },
 });
 

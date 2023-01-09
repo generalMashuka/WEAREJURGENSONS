@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ItemView from "../ItemView/ItemView";
 import { selectItems, selectLoaderror } from "../selectors";
 import styles from "./styles.module.css";
 import * as api from '../api';
 import { ItemId } from "../types/Item";
-import { itemDeleted } from "../itemsSlice";
+import { itemDeleted, loadItems } from "../itemsSlice";
 import { useAppDispatch } from "../../../store";
 
 function ItemsPage(): JSX.Element {
@@ -13,9 +13,7 @@ function ItemsPage(): JSX.Element {
   const dispatch = useAppDispatch();
 
   const handleItemRemove = (id: ItemId): void => {
-    // api.deleteItem(id).then(() => {
       dispatch(itemDeleted(id));
-    // });
   };
 
   return (
