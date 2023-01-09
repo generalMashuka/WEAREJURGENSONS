@@ -32,12 +32,12 @@ function AuthPage(): JSX.Element {
             name,
             password,
           })
-          .then(() => {
+          .then((user) => {
             // если сервер вернул ответ об успешном входе делаем dispatch, чтобы положить юзера в стэйт
             dispatch(loginSuccess({name, password}));
     
             //редиректим пользователя на главную
-            navigate('/');
+            navigate('/profile');
           });
       };
       

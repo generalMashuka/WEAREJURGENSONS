@@ -7,13 +7,26 @@ import searchPic from "./img/MagnifyingGlass.png";
 import cartPic from "./img/ShoppingCart.svg";
 import userPic from "./img/User.png";
 
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch} from "react-redux";
 import { selectUser } from "../../auth/selectors";
+import * as api from '../../auth/api';
+import { logoutSuccess } from "../../auth/authSlice";
+
 
 function NavBar(): JSX.Element {
   const user = useSelector(selectUser)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   console.log(user);
+
+  // const handleLogout = (event: React.FormEvent): void => {
+  //   event.preventDefault();
+  //   api.logout().then(() => {
+  //     dispatch(logoutSuccess());
+  //     navigate('/');
+  //   });
+  // }
   
   return (
     <div>
@@ -29,12 +42,9 @@ function NavBar(): JSX.Element {
           <div className={styles.link}>Привет, {user.name}</div>
         )}
           {/* <a className={styles.link} href="#aboutUs">О нас</a> */}
-
           <Link className={styles.link} to="/about">
             О нас
           </Link>
-
-
           <Link to="/items">Каталог</Link>
           <Link to="/contacts">Контакты</Link>
         </div>
@@ -48,9 +58,15 @@ function NavBar(): JSX.Element {
           <a href="">
             <img src={cartPic} alt="cartPic" />
           </a>
-          <a href="">
+          <a href="/profile">
             <img src={userPic} alt="userPic" />
           </a>
+          { user?.isAdmin && (
+          <a href="#" role="button" tabIndex={0} >
+          Выйти
+        </a>
+          )
+          }
         </div>
       </nav>
     </div>

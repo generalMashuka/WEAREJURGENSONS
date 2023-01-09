@@ -9,7 +9,6 @@ const initialState: AuthState  = {
   authChecked: false,
 } 
 
-
 export const userChecked = createAsyncThunk(
   'auth/userChecked',
   async () => {
@@ -27,6 +26,13 @@ export const loginSuccess = createAsyncThunk (
       }
 )
 
+export const logoutSuccess = createAsyncThunk (
+  'auth/logout',
+  async () => {
+
+  }
+)
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -35,8 +41,8 @@ const authSlice = createSlice({
     builder
     .addCase(userChecked.fulfilled, (state, action) => {
         const user = action.payload;
-        if (user.isLoggedIn) {
-         state.user = undefined
+        if (!user.isLoggedIn) {
+         state.user = undefined;
         } 
     })
     .addCase(loginSuccess.fulfilled, ( state, action) => {

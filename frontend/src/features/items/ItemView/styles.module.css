@@ -4,8 +4,14 @@ position:absolute;
 height: 10%;
 width: 100%;
 background: rgba(246, 239, 231, 0.8);
-bottom: 0;
+bottom: 40px;
 gap: 3%;
+}
+
+.img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
 
 .pic {
@@ -13,9 +19,10 @@ margin-top: 40px;
 display: flex;
 position: relative;
 flex-direction: column;
-height: 340px;
+/* height: 340px; */
 width: 340px;
 overflow: hidden;
+background-color: rgb(165, 135, 135);
 }
 
 .text {
@@ -26,6 +33,7 @@ overflow: hidden;
 
 .card {
     margin: 2%;
+   
 }
 
 .buyButton:hover {
@@ -49,4 +57,13 @@ overflow: hidden;
     color: rgb(84, 78, 78);
     padding: 6px 14px;
     font-size: 14px;
+}
+
+.btnBox {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
 }

@@ -1,17 +1,27 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import Item from "../types/Item";
+import Item, { ItemId } from "../types/Item";
 import styles from "./styles.module.css";
+import { selectUser } from "../../auth/selectors";
 
 type ItemProps = {
   item: Item;
+  onRemove: (itemId: ItemId) => void;
 };
 
-function ItemView({ item }: ItemProps): JSX.Element {
+function ItemView({ item, onRemove  }: ItemProps): JSX.Element {
   // const navigate = useNavigate();
   // const handleItemPageClick = (): void => {
   //   navigate(`/items/${item.id}`);
   // };
+  const user = useSelector(selectUser)
+
+  const handleRemove = (event: React.MouseEvent): void => {
+    event.stopPropagation();
+    event.preventDefault();
+    onRemove(item.id);
+  };
 
   return (
     <div className={styles.card}>
@@ -24,7 +34,11 @@ function ItemView({ item }: ItemProps): JSX.Element {
           {/* <p>{item.price}</p> */}
           {/* <button className={styles.buyButton} >купить</button> */}
         </div>
-        <img src={item.img} className="card-img" alt="..." />
+        <img src={item.img} className={styles.img} alt="..." />
+        <div className={styles.btnBox}>
+          { user && <button type="button" onClick={handleRemove} className={styles.btn}>Удалить</button>}
+          <button type="button"  className={styles.btn}>Редактировать</button>
+        </div>
       </div>
     </div>
   );
