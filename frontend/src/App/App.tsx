@@ -19,7 +19,8 @@ import { selectAuthChecked } from '../features/auth/selectors';
 
 
 import AboutPage from '../features/about/AboutPage';
-import ItemPage from '../features/items/ItemPage.tsx/ItemPage';
+import ItemPage from '../features/items/ItemPage/ItemPage';
+import CartPage from '../features/cart/cartPage/CartPage';
 
 
 function App(): JSX.Element {
@@ -46,6 +47,8 @@ function App(): JSX.Element {
           <Route path="/items" element={<ItemsPage />} />
           <Route path="/items/:id" element={<ItemPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/cart" element={<CartPage />} />
+
       </Routes>
     </div>
   );

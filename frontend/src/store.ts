@@ -1,17 +1,46 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 // Слайсы - это отдельные модули нашего приложения. У каждого слайса - свой редьюсер.
-import authSlice from './features/auth/authSlice';
-import itemsSlice from './features/items/itemsSlice';
-import categoriesSlice from './features/categories/categoriesSlice';
+import authSlice from "./features/auth/authSlice";
+import itemsSlice from "./features/items/itemsSlice";
+import categoriesSlice from "./features/categories/categoriesSlice";
+import { cartReducer } from "./features/cart/cartSlice";
+import storage from "redux-persist/lib/storage";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["cart"],
+};
+
+const reducers = combineReducers({
+  auth: authSlice,
+  items: itemsSlice,
+  categories: categoriesSlice,
+  cart: cartReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   // теперь функция combineReducers не нужна
-  reducer: {
-     auth: authSlice,
-    items: itemsSlice,
-    categories: categoriesSlice,
-  },
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 // для правильной типизации будем использовать useAppDispatch вместо useDispatch
@@ -20,3 +49,4 @@ export const useAppDispatch: () => AppDispatch = useDispatch;
 export type RootState = ReturnType<typeof store.getState>;
 
 export default store;
+export const persistor = persistStore(store);
