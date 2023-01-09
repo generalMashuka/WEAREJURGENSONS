@@ -9,6 +9,7 @@ import ItemsPage from '../features/items/ItemsPage/ItemsPage';
 import MainPage from '../features/main/MainPage/MainPage';
 import ContactsPage from '../features/contacts/ContactsPage';
 import AuthPage from '../features/auth/authpage/authPage';
+import ProfilePage from '../features/profile/ProfilePage';
 
 import { loadCategories } from '../features/categories/categoriesSlice';
 
@@ -44,6 +45,7 @@ function App(): JSX.Element {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/items" element={<ItemsPage />} />
           <Route path="/items/:id" element={<ItemPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </div>
   );

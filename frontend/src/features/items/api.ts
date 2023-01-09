@@ -1,4 +1,4 @@
-import Item from './types/Item';
+import Item, { ItemId } from './types/Item';
 
 export async function loadItems(): Promise<Item[]> {
   
@@ -11,3 +11,16 @@ export async function loadItems(): Promise<Item[]> {
     throw new Error(result.error);
   }
 }
+
+export async function deleteItem (id: ItemId): Promise<number> {
+  const response = await fetch(`/api/items/${id}`, {
+    method: 'DELETE'
+  });
+  const result = await response.json();
+  if (response.ok) {
+    return result;
+  } else {
+    throw new Error(result.error);
+  }
+}
+

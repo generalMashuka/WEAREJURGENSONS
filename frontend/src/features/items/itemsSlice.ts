@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import ItemsState from './types/State';
 import * as api from './api';
+import { ItemId } from './types/Item';
 
 // 1. начальное состояние
 const initialState: ItemsState = {
@@ -18,6 +19,13 @@ export const loadItems = createAsyncThunk(
     return items;
   }
 );
+
+export const itemDeleted = createAsyncThunk(
+  'items/itemDeleted',
+  async(id: ItemId) => {
+ return await api.deleteItem(id)
+  }
+)
 
 // 3. Сам слайс с редьюсерами
 
@@ -38,7 +46,10 @@ const itemsSlice = createSlice({
       .addCase(loadItems.rejected, (state, action) => {
         // в action.error попадёт ошибка сгенерированная санком
         state.loadError = action.error.message;
-      });
+      })
+      .addCase( itemDeleted.fulfilled, ( state, action) => {
+          state.items = state.items.filter((item) => item.id !== action.payload)
+      })
   },
 });
 
