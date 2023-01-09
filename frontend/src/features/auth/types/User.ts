@@ -1,8 +1,9 @@
 type User = {
   id: number;
-  login: string;
+  name: string;
+  isAdmin: boolean;
 };
 
-export type SuggestionId = User['id'];
+export type UserId = User['id'];
 
 export default User;

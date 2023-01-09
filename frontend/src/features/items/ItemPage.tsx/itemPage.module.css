@@ -1,0 +1,52 @@
+.name {
+    display: flex;
+    position:absolute;
+    height: 10%;
+    width: 100%;
+    background: rgba(246, 239, 231, 0.8);
+    bottom: 0;
+    gap: 3%;
+    }
+    
+    .pic {
+    margin-top: 40px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 340px;
+    width: 340px;
+    overflow: hidden;
+    }
+    
+    .text {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 20px;
+    }
+    
+    .card {
+        margin: 2%;
+    }
+    
+    .buyButton:hover {
+        background: #d7dbe3;
+      }
+    
+    .buyButton:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px #bbbcc0;
+      }
+    
+    .buyButton {
+        margin-top: 5px;
+        height: 70%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+             appearance: none;
+        border: 0;
+        border-radius: 10%;
+        background: rgb(225, 215, 215);
+        color: rgb(84, 78, 78);
+        padding: 6px 14px;
+        font-size: 14px;
+    }
