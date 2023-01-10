@@ -55,9 +55,9 @@ function NavBar(): JSX.Element {
           <a href="">
             <img src={heartPic} alt="heartPic" />
           </a>
-          <a href="">
+          <Link to="/cart">
             <img src={cartPic} alt="cartPic" />
-          </a>
+          </Link>
           <a href="/profile">
             <img src={userPic} alt="userPic" />
           </a>
