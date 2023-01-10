@@ -11,10 +11,11 @@ try {const items = await Item.findAll({
 });
 res.json(items)
 } catch (error) {
-    console.log(error)
+    console.error(error)
     res.status(501).json({ error: 'ошибка БД при загрузке товаров на странцу'})
   }
 });
+
 
 itemsRouter.delete('/:id', async (req, res) => {
   try {
@@ -33,6 +34,7 @@ itemsRouter.delete('/:id', async (req, res) => {
       res.json(req.params.id)
     }
   } catch (error) {
+    console.error(error)
     res.status(501).json({ error: 'ошибка БД'})
   }
 });
@@ -60,7 +62,7 @@ itemsRouter.post('/', async ( req, res ) => {
     return res.status(201).json(newItem);
   } catch ( error) {
     res.status(501).json({error: 'ошибка БД при создании товара'})
-    console.log(error);
+    console.error(error)
   }
 })
 
@@ -82,7 +84,7 @@ itemsRouter.put('/:id', async( req, res ) => {
      res.json({ success: true})
   } catch (error) {
     res.status(501).json({error: 'ошибка БД при редактировании'})
-    console.log(error);
+    console.error(error)
   }
 })
 

@@ -22,8 +22,7 @@ export async function login(credentials: Credentials): Promise<User > {
     },
   });
   console.log(res);
-  
-   return res.json();
+  return res.json();
 }
 
 export async function logout(): Promise<void> {
