@@ -58,17 +58,8 @@ function ProfilePage(): JSX.Element {
   const handleCategory_id = (
     event: React.ChangeEvent<HTMLSelectElement>
   ): void => {
-    // if ( typeof event.target.value === 'number') {
     setCategory_id(Number(event.target.value));
-    // }
-    // setCategory_id(undefined)
   };
-
-  // const handleCategory_id = (
-  //   event: React.ChangeEvent<HTMLInputElement>
-  // ): void => {
-  //   setCategory_id(Number(event.target.value));
-  // };
 
   return (
     <div className={styles.maincontainer}>

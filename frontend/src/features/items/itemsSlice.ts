@@ -50,24 +50,23 @@ const itemsSlice = createSlice({
   // здесь описываем реакции на асинхронные операции (санки)
   extraReducers: (builder) => {
     builder
-      // когда thunk loadSuggestions завершиться удачей (fulfilled)
       // то выполни этот редьюсер (измени стэйт)
-      .addCase(loadItems.fulfilled, (state, action) => {
+    .addCase(loadItems.fulfilled, (state, action) => {
         const items = action.payload;
         state.items = items;
-      })
-      // когда thunk loadSuggestions завершиться неудачей
-      .addCase(loadItems.rejected, (state, action) => {
+    })
+    // когда thunk loadSuggestions завершиться неудачей
+    .addCase(loadItems.rejected, (state, action) => {
         // в action.error попадёт ошибка сгенерированная санком
         state.loadError = action.error.message;
-      })
-      .addCase( itemDeleted.fulfilled, ( state, action ) => {
+    })
+    .addCase( itemDeleted.fulfilled, ( state, action ) => {
           state.items = state.items.filter((item) => item.id !== action.payload)
-      })
-      .addCase(itemDeleted.rejected, ( state, action)  => {
+    })
+    .addCase(itemDeleted.rejected, ( state, action)  => {
         state.loadError = action.error.message;
-      })
-      .addCase( itemCreated.fulfilled, ( state, action ) => {
+    })
+    .addCase( itemCreated.fulfilled, ( state, action ) => {
         state.items.push(action.payload)
     })
     .addCase(itemCreated.rejected, (state, action) => {

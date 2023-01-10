@@ -7,14 +7,13 @@ export async function checkUser(): Promise<
       user: User;
     }
   | {
-      // user: any;
       isLoggedIn: false;
     }
 > {
   return (await fetch('/api/auth/user')).json();
 }
 
-export async function login(credentials: Credentials): Promise<User> {
+export async function login(credentials: Credentials): Promise<User > {
   const res = await fetch('/api/auth/login', {
     method: 'POST',
     body: JSON.stringify(credentials),
@@ -22,6 +21,8 @@ export async function login(credentials: Credentials): Promise<User> {
       'Content-Type': 'application/json',
     },
   });
+  console.log(res);
+  
    return res.json();
 }
 

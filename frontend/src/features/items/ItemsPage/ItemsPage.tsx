@@ -4,7 +4,7 @@ import { selectItems, selectLoaderror } from "../selectors";
 import styles from "./styles.module.css";
 import * as api from '../api';
 import Item, { ItemId } from "../types/Item";
-import { itemDeleted, itemUpdated, loadItems } from "../itemsSlice";
+import { itemDeleted, itemUpdated } from "../itemsSlice";
 import { useAppDispatch } from "../../../store";
 
 function ItemsPage(): JSX.Element {

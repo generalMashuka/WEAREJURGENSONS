@@ -14,7 +14,7 @@ import ProfilePage from '../features/profile/ProfilePage';
 import { loadCategories } from '../features/categories/categoriesSlice';
 
 import { loadItems } from '../features/items/itemsSlice';
-import { loginSuccess, userChecked } from '../features/auth/authSlice';
+import { userChecked } from '../features/auth/authSlice';
 import { selectAuthChecked } from '../features/auth/selectors';
 
 
@@ -25,14 +25,23 @@ import ItemPage from '../features/items/ItemPage.tsx/ItemPage';
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked)
-
+  console.log(authChecked);
+  
   useEffect(() => {
     dispatch(loadItems());
     dispatch(loadCategories());
     dispatch(userChecked());
     }, [dispatch]);
 
-   
+    // if (!authChecked) {
+    //   return (
+    //     <div className="spinner-border text-primary" role="status">
+    //       <span className="visually-hidden">Loading...</span>
+    //     </div>
+    //   );
+    // }
+
+ 
   return (
     <div>
       <NavBar />
