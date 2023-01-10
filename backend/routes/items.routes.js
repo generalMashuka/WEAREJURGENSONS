@@ -11,6 +11,7 @@ try {const items = await Item.findAll({
 });
 res.json(items)
 } catch (error) {
+    console.log(error)
     res.status(501).json({ error: 'ошибка БД при загрузке товаров на странцу'})
   }
 });
@@ -61,7 +62,28 @@ itemsRouter.post('/', async ( req, res ) => {
     res.status(501).json({error: 'ошибка БД при создании товара'})
     console.log(error);
   }
+})
 
+itemsRouter.put('/:id', async( req, res ) => {
+  try {
+     const item = await Item.findByPk(Number(req.params.id));
+     const { name, price, img, description, category_id} = req.body;
+
+     if (!item) {
+      res.status(404).json({success: false, message: 'Нет такой задачи'});
+      return;
+     }     
+     item.name = name,
+     item.price = price,
+     item.img = img,
+     item.description = description,
+     item.category_id = category_id
+     item.save();
+     res.json({ success: true})
+  } catch (error) {
+    res.status(501).json({error: 'ошибка БД при редактировании'})
+    console.log(error);
+  }
 })
 
 module.exports = itemsRouter;

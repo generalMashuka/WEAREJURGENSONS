@@ -4,11 +4,13 @@ import { useAppDispatch } from "../../store";
 // import { selectItems, selectLoaderror } from "../items/selectors";
 import React from "react";
 import { itemCreated } from "../items/itemsSlice";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage(): JSX.Element {
   // const items = useSelector(selectItems);
   // const loadError = useSelector(selectLoaderror);
   const dispatch = useAppDispatch();
+  const navigate  = useNavigate();
 
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState(0);
@@ -22,6 +24,11 @@ function ProfilePage(): JSX.Element {
       name, price, img, description, category_id,
       id: 0
     }));
+    setName('')
+    setPrice(0)
+    setImg('')
+    setDescription('')
+    navigate('/items')
   };
 
   const handleNameChange = (

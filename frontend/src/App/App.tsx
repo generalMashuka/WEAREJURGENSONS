@@ -23,12 +23,10 @@ import ItemPage from '../features/items/ItemPage.tsx/ItemPage';
 
 
 function App(): JSX.Element {
-  // используем useAppDispatch из store
   const dispatch = useAppDispatch();
   const authChecked = useSelector(selectAuthChecked)
 
   useEffect(() => {
-    // диспатчим экшен криэтор loadSuggestions, который был сгенерирован в слайсе
     dispatch(loadItems());
     dispatch(loadCategories());
     dispatch(userChecked());

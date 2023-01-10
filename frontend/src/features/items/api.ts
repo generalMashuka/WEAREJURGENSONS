@@ -41,3 +41,12 @@ export async function createItem (item: Item): Promise<Item> {
   return response.json();
 }
 
+export async function updateItem (item: Item): Promise<void> {
+  await fetch(`api/items/${item.id}`, {
+    method: 'PUT',  
+    body: JSON.stringify(item),
+    headers: {
+      'Content-Type': 'application/json',
+    },  })
+}
+

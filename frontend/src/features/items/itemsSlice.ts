@@ -35,7 +35,13 @@ return await api.createItem(item)
   }
 )
 
-// 3. Сам слайс с редьюсерами
+export const itemUpdated = createAsyncThunk(
+  'items/itemUpdated',
+  async(item: Item) => {
+    await api.updateItem(item)
+    return item;
+  }
+)
 
 const itemsSlice = createSlice({
   name: 'items',
@@ -65,6 +71,13 @@ const itemsSlice = createSlice({
         state.items.push(action.payload)
     })
     .addCase(itemCreated.rejected, (state, action) => {
+      state.loadError = action.error.message
+    })
+    .addCase (itemUpdated.fulfilled, (state, action) => {
+      const newItem  = action.payload
+      state.items = state.items.map((item) => (item.id === newItem.id ? newItem: item))
+    })
+    .addCase (itemUpdated.rejected, ( state, action) => {
       state.loadError = action.error.message
     })
   },

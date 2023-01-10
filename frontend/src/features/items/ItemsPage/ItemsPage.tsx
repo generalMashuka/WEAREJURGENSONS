@@ -3,8 +3,8 @@ import ItemView from "../ItemView/ItemView";
 import { selectItems, selectLoaderror } from "../selectors";
 import styles from "./styles.module.css";
 import * as api from '../api';
-import { ItemId } from "../types/Item";
-import { itemDeleted, loadItems } from "../itemsSlice";
+import Item, { ItemId } from "../types/Item";
+import { itemDeleted, itemUpdated, loadItems } from "../itemsSlice";
 import { useAppDispatch } from "../../../store";
 
 function ItemsPage(): JSX.Element {
@@ -16,6 +16,10 @@ function ItemsPage(): JSX.Element {
       dispatch(itemDeleted(id));
   };
 
+  const handleItemUpdate = (item: Item): void => {
+    dispatch(itemUpdated(item))
+  }
+
   return (
     <div>
       <div className={styles.cards}>
@@ -26,6 +30,7 @@ function ItemsPage(): JSX.Element {
           key={item.id} 
           item={item}
           onRemove={handleItemRemove}
+          onUpdate={handleItemUpdate}
           />)
         )}
       </div>
