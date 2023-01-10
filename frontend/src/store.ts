@@ -1,11 +1,11 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 // Слайсы - это отдельные модули нашего приложения. У каждого слайса - свой редьюсер.
-import authSlice from "./features/auth/authSlice";
-import itemsSlice from "./features/items/itemsSlice";
-import categoriesSlice from "./features/categories/categoriesSlice";
-import { cartReducer } from "./features/cart/cartSlice";
-import storage from "redux-persist/lib/storage";
+import authSlice from './features/auth/authSlice';
+import itemsSlice from './features/items/itemsSlice';
+import categoriesSlice from './features/categories/categoriesSlice';
+import { cartReducer } from './features/cart/cartSlice';
+import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
   persistReducer,
@@ -15,12 +15,12 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
+} from 'redux-persist';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-  whitelist: ["cart"],
+  whitelist: ['cart'],
 };
 
 const reducers = combineReducers({
