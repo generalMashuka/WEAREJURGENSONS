@@ -34,11 +34,13 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   // теперь функция combineReducers не нужна
-  reducer: {
-    auth: authSlice,
-    items: itemsSlice,
-    categories: categoriesSlice,
-  },
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 // для правильной типизации будем использовать useAppDispatch вместо useDispatch
