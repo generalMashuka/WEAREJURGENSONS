@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Order.init(
     {
-      number: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       status: {
+        type: DataTypes.TEXT,
+        defaultValue: 'ozhidanie',
+      },
+      contact: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
