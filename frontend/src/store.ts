@@ -2,14 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 // Слайсы - это отдельные модули нашего приложения. У каждого слайса - свой редьюсер.
 import authSlice from './features/auth/authSlice';
-import adminSlice from './features/admin/adminSlice';
 import itemsSlice from './features/items/itemsSlice';
 import categoriesSlice from './features/categories/categoriesSlice';
 
 const store = configureStore({
   // теперь функция combineReducers не нужна
   reducer: {
-    admin: adminSlice,
     auth: authSlice,
     items: itemsSlice,
     categories: categoriesSlice,
