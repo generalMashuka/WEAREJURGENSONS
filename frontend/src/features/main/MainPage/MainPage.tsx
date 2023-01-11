@@ -26,7 +26,6 @@ function MainPage(): JSX.Element {
       {/* блок - основной страницы */}
       <div className={styles.main_container}>
         <CategoriesPage />
-
         <div className={styles.links_container}>
           {" "}
           {/* может быть потом вынести блок в отдельную view */}

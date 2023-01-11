@@ -10,25 +10,31 @@ function ProfilePage(): JSX.Element {
   // const items = useSelector(selectItems);
   // const loadError = useSelector(selectLoaderror);
   const dispatch = useAppDispatch();
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
 
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState(0);
   const [img, setImg] = React.useState("");
   const [description, setDescription] = React.useState("");
-  const [category_id, setCategory_id] = React.useState(0);
+  const [category_id, setCategory_id] = React.useState(1);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(itemCreated({
-      name, price, img, description, category_id,
-      id: 0
-    }));
-    setName('')
-    setPrice(0)
-    setImg('')
-    setDescription('')
-    navigate('/items')
+    dispatch(
+      itemCreated({
+        name,
+        price,
+        img,
+        description,
+        category_id,
+        id: 0,
+      })
+    );
+    setName("");
+    setPrice(0);
+    setImg("");
+    setDescription("");
+    navigate("/items");
   };
 
   const handleNameChange = (
@@ -75,6 +81,7 @@ function ProfilePage(): JSX.Element {
                 Название товара
               </label>
               <input
+                required
                 type="text"
                 className={styles.input}
                 id="name-input"
@@ -88,6 +95,7 @@ function ProfilePage(): JSX.Element {
                 Цена товара
               </label>
               <input
+                required
                 type="number"
                 className={styles.input}
                 id="price-input"
@@ -101,6 +109,7 @@ function ProfilePage(): JSX.Element {
                 Описание товара
               </label>
               <input
+                required
                 type="text"
                 className={styles.input}
                 id="description-input"
@@ -114,6 +123,7 @@ function ProfilePage(): JSX.Element {
                 Изображение
               </label>
               <input
+                required
                 type="text"
                 className={styles.input}
                 id="img-input"
@@ -144,7 +154,6 @@ function ProfilePage(): JSX.Element {
       <div>
         <p className={styles.title}>Сформированные заказы</p>
       </div>
-      
     </div>
   );
 }

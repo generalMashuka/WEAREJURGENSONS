@@ -94,6 +94,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Название товара
               </label>
               <input
+                required
                 type="text"
                 className={styles.input}
                 id="name-input"
@@ -107,6 +108,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Цена товара
               </label>
               <input
+              required
                 type="number"
                 className={styles.input}
                 id="price-input"
@@ -120,6 +122,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Описание товара
               </label>
               <input
+              required
                 type="text"
                 className={styles.input}
                 id="description-input"
@@ -133,6 +136,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Изображение
               </label>
               <input
+              required
                 type="text"
                 className={styles.input}
                 id="img-input"

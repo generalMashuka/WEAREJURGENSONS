@@ -1,19 +1,20 @@
 import { useSelector } from "react-redux";
+import { memo, useMemo } from 'react';
 import ItemView from "../ItemView/ItemView";
 import { selectItems, selectLoaderror } from "../selectors";
-// import styles from "./styles.module.css";
-import * as api from '../api';
-import Item, { ItemId } from "../types/Item";
-import { useAppDispatch } from "../../../store";
+import styles from "./styles.module.css";
+// import * as api from '../api';
 import { useParams } from "react-router-dom";
 
 function SortedItems(): JSX.Element {
   const items = useSelector(selectItems);
   const { id } = useParams();
   const loadError = useSelector(selectLoaderror);
-  const dispatch = useAppDispatch();
+  
+const sortedItems = useMemo(() => {
+return items.filter((i) => i.category_id === Number(id));
+}, [id, items])
 
-const sortedItems = items.filter((i) => i.category_id === Number(id));
 
   return (
     <div>
@@ -31,4 +32,4 @@ const sortedItems = items.filter((i) => i.category_id === Number(id));
   );
 }
 
-export default SortedItems;
+export default memo(SortedItems);
