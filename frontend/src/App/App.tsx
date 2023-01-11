@@ -52,10 +52,6 @@ function App(): JSX.Element {
           <Route path="/items/:id" element={<ItemPage />} />
           <Route path="/categories/:id" element={<SortedItems />} />
           <Route path="/profile" element={<ProfilePage />} />
-          
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/cart" element={<CartPage />} />
           <Route path="/cart" element={<CartPage />} />
 
       </Routes>

@@ -5,10 +5,13 @@ import { useAppDispatch } from "../../../store";
 import { useNavigate } from "react-router-dom";
 import { loginSuccess } from "../authSlice";
 import * as api from "../api";
-import { selectUser } from "../selectors";
+import { selectCreateError, selectUser } from "../selectors";
 
 function AuthPage(): JSX.Element {
   const user = useSelector(selectUser);
+  const CreateError = useSelector(selectCreateError);
+  console.log(CreateError);
+  
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -29,55 +32,101 @@ function AuthPage(): JSX.Element {
 
   const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
-
-    // отправляем запрос на сервер для логина
-
     dispatch(loginSuccess({ name, password }));
-    if (user) {
-      navigate("/profile");
-    }
   };
 
+  if (user) {
+    navigate("/profile");
+  }
+
   return (
-    <form className="auth-form" onSubmit={handleSubmit}>
-      {!user && <h2>Вход</h2>}
-      {user && <h2>Ты уже залогинен</h2>}
-      {!user && (
-        <>
-          <div className="mb-3">
-            <label htmlFor="name-input" className="form-label">
-              Имя
-            </label>
-            <input
-              required
-              type="text"
-              className="form-control"
-              id="name-input"
-              name="username"
-              value={name}
-              onChange={handleNameChange}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password-input" className="form-label">
-              Пароль
-            </label>
-            <input
-              required
-              type="password"
-              className="form-control"
-              id="password-input"
-              name="password"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Войти
-          </button>
-        </>
+    <div>
+      { !CreateError ? (
+        <form className="auth-form" onSubmit={handleSubmit}>
+          {!user && <h2>Вход</h2>}
+          {/* {user && <h2>Ты уже залогинен</h2>} */}
+          {!user && (
+            <>
+              <div className="mb-3">
+                <label htmlFor="name-input" className="form-label">
+                  Имя
+                </label>
+                <input
+                  required
+                  type="text"
+                  className="form-control"
+                  id="name-input"
+                  name="username"
+                  value={name}
+                  onChange={handleNameChange}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password-input" className="form-label">
+                  Пароль
+                </label>
+                <input
+                  required
+                  type="password"
+                  className="form-control"
+                  id="password-input"
+                  name="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Войти
+              </button>
+            </>
+          )}
+        </form>
+      ): (
+        <form className="auth-form" onSubmit={handleSubmit}>
+        {!user && <h2>Вход</h2>}
+        {!user && (
+          <>
+            <div className="mb-3">
+              <label htmlFor="name-input" className="form-label">
+                Имя
+              </label>
+              <input
+                required
+                type="text"
+                className="form-control"
+                id="name-input"
+                name="username"
+                value={name}
+                onChange={handleNameChange}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="password-input" className="form-label">
+                Пароль
+              </label>
+              <input
+                required
+                type="password"
+                className="form-control"
+                id="password-input"
+                name="password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Войти
+            </button>
+          </>
+        )}
+        <div>
+        <p>Неправильный логин или пароль</p>
+        </div>
+        
+      </form>
+        
       )}
-    </form>
+    </div>
   );
 }
 

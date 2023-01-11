@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
 import ItemView from "../ItemView/ItemView";
-import { selectItems, selectLoaderror } from "../selectors";
+import { selectItems, selectLoaderror, selectUpdateError } from "../selectors";
 import styles from "./styles.module.css";
 import * as api from "../api";
 import Item, { ItemId } from "../types/Item";
 import { itemDeleted, itemUpdated } from "../itemsSlice";
 import { useAppDispatch } from "../../../store";
 import React, { useMemo, useState } from "react";
+import ItemData from "../types/ItemData";
+
+
 
 function ItemsPage(): JSX.Element {
   const items = useSelector(selectItems);
@@ -60,30 +63,7 @@ function ItemsPage(): JSX.Element {
     dispatch(itemUpdated(item));
   };
 
-  // const handleSortedUp = (event: React.MouseEvent): void => {
 
-  // }
-
-  // const handleSortedUp = (event: React.MouseEvent): void => {
-  //   setFinalItems((prev) => [...prev].sort((a, b) => a.price - b.price));
-  // };
-
-  //   const handleSortedDown = (event: React.MouseEvent): void => {
-  //   useMemo(() =>  {
-  //     return  setFinalItems((prev) => [...prev].sort((a, b) => b.price - a.price));
-  //   }, [])
-  // };
-
-  // const handleSetDefault = (event: React.MouseEvent): void => {
-  //   setFinalItems(items);
-  // };
-
-  // const handleSortedCategory = (event: React.ChangeEvent<HTMLSelectElement>
-  // ): void => {
-  //   setFinalItems(items);
-  //   setCategoryId(Number(event.target.value))
-  //   setFinalItems((prev) => prev.filter((i) => i.category_id === Number(categoryId)))
-  // }
 
   return (
     <div>
@@ -108,6 +88,7 @@ function ItemsPage(): JSX.Element {
       </div>
 
       <div className={styles.cards}>
+       
         {loadError ? (
           <b>{loadError}</b>
         ) : (
@@ -121,8 +102,11 @@ function ItemsPage(): JSX.Element {
           ))
         )}
       </div>
+      
     </div>
   );
 }
 
 export default ItemsPage;
+
+

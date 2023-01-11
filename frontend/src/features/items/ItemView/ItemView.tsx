@@ -5,6 +5,7 @@ import Item, { ItemId } from "../types/Item";
 import styles from "./styles.module.css";
 import { selectUser } from "../../auth/selectors";
 import React from "react";
+import { selectUpdateError } from "../selectors";
 
 type ItemProps = {
   item: Item;
@@ -18,6 +19,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
   //   navigate(`/items/${item.id}`);
   // };
   const user = useSelector(selectUser);
+  const updateError = useSelector(selectUpdateError)
 
   const [edit, setEdit] = React.useState(false);
 
@@ -182,6 +184,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
           )}
         </div>
       </div>
+
     </div>
   );
 }

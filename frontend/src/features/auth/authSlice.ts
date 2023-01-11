@@ -53,11 +53,12 @@ const authSlice = createSlice({
     .addCase(loginSuccess.fulfilled, ( state, action) => {
       const data = action.payload;
       if (data.error) {state.user = undefined} 
+      if (data.error) {state.createError = action.payload.error} 
       else { state.user = data}
     })
     .addCase(loginSuccess.rejected, (state, action) => {
-      //  state.createError = action.payload
-        })
+      
+    })
      .addCase(logoutSuccess.fulfilled, ( state, action ) => {
       state.user = undefined
      })

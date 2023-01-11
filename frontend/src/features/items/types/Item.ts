@@ -1,10 +1,7 @@
-type Item = {
+import ItemData from "./ItemData";
+
+type Item = ItemData & {
   id: number;
-  name:string;
-  img:string;
-  description:string | undefined;
-  price:number;
-  category_id:number | undefined;
 }
 
 export type ItemId = Item['id']

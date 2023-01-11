@@ -8,12 +8,15 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectUser } from "../auth/selectors";
 
+
 function ProfilePage(): JSX.Element {
   // const items = useSelector(selectItems);
   // const loadError = useSelector(selectLoaderror);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const user = useSelector(selectUser)
+
+  const [edit, setEdit] = React.useState(false);
 
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState(0);
@@ -70,6 +73,10 @@ function ProfilePage(): JSX.Element {
     setCategory_id(Number(event.target.value));
   };
 
+  const handleEditClick = (event: React.MouseEvent): void => {
+    setEdit(true)
+  }
+
    if ( !user ) {
     return (
       <div className={styles.nonUserBox}>
@@ -81,84 +88,97 @@ function ProfilePage(): JSX.Element {
   return (    
     <div className={styles.maincontainer}>
       <h1>Профиль администратора</h1>
+
+      
       <div className={styles.correctItemsBox}>
         <p className={styles.title}>Редактирование товаров</p>
-        <div className={styles.newItemBox}>
-          <p className={styles.title}>Создание нового товара</p>
-          <form className={styles.inputGroup} onSubmit={handleSubmit}>
-            <div className={styles.inputBox}>
-              <label htmlFor="name-input" className={styles.formLabel}>
-                Название товара
-              </label>
-              <input
-                required
-                type="text"
-                className={styles.input}
-                id="name-input"
-                name="name"
-                value={name}
-                onChange={handleNameChange}
-              />
-            </div>
-            <div className={styles.inputBox}>
-              <label htmlFor="price-input" className={styles.formLabel}>
-                Цена товара
-              </label>
-              <input
-                required
-                type="number"
-                className={styles.input}
-                id="price-input"
-                name="price"
-                value={price}
-                onChange={handlePriceChange}
-              />
-            </div>
-            <div className={styles.inputBox}>
-              <label htmlFor="description-input" className={styles.formLabel}>
-                Описание товара
-              </label>
-              <input
-                required
-                type="text"
-                className={styles.input}
-                id="description-input"
-                name="description"
-                value={description}
-                onChange={handleDescriptionChange}
-              />
-            </div>
-            <div className={styles.inputBox}>
-              <label htmlFor="img-input" className={styles.formLabel}>
-                Изображение
-              </label>
-              <input
-                required
-                type="text"
-                className={styles.input}
-                id="img-input"
-                name="img"
-                value={img}
-                onChange={handleImgChange}
-              />
-            </div>
-            <div className={styles.inputBox}>
-              <label className={styles.formLabel}>
-                Выберите категорию товара
-              </label>
-              <select onChange={handleCategory_id}>
-                <option value="1">Категория 1</option>
-                <option value="2">Категория 2</option>
-                <option value="3">Категория 3</option>
-                <option value="4">Категория 4</option>
-              </select>
-            </div>
-
-            <button type="submit" className="">
-              Создать товар
-            </button>
-          </form>
-        </div>
+        { edit ? (           
+               <div className={styles.newItemBox}>
+                <p className={styles.title}>Создание нового товара</p>
+               <form className={styles.inputGroup} onSubmit={handleSubmit}>
+                 <div className={styles.inputBox}>
+                   <label htmlFor="name-input" className={styles.formLabel}>
+                     Название товара
+                   </label>
+                   <input
+                     required
+                     type="text"
+                     className={styles.input}
+                     id="name-input"
+                     name="name"
+                     value={name}
+                     onChange={handleNameChange}
+                   />
+                 </div>
+                 <div className={styles.inputBox}>
+                   <label htmlFor="price-input" className={styles.formLabel}>
+                     Цена товара
+                   </label>
+                   <input
+                     required
+                     type="number"
+                     className={styles.input}
+                     id="price-input"
+                     name="price"
+                     value={price}
+                     onChange={handlePriceChange}
+                   />
+                 </div>
+                 <div className={styles.inputBox}>
+                   <label htmlFor="description-input" className={styles.formLabel}>
+                     Описание товара
+                   </label>
+                   <input
+                     required
+                     type="text"
+                     className={styles.input}
+                     id="description-input"
+                     name="description"
+                     value={description}
+                     onChange={handleDescriptionChange}
+                   />
+                 </div>
+                 <div className={styles.inputBox}>
+                   <label htmlFor="img-input" className={styles.formLabel}>
+                     Изображение
+                   </label>
+                   <input
+                     required
+                     type="text"
+                     className={styles.input}
+                     id="img-input"
+                     name="img"
+                     value={img}
+                     onChange={handleImgChange}
+                   />
+                 </div>
+                 <div className={styles.inputBox}>
+                   <label className={styles.formLabel}>
+                     Выберите категорию товара
+                   </label>
+                   <select onChange={handleCategory_id}>
+                     <option value="1">Категория 1</option>
+                     <option value="2">Категория 2</option>
+                     <option value="3">Категория 3</option>
+                     <option value="4">Категория 4</option>
+                   </select>
+                 </div>
+     
+                 <button type="submit" className="">
+                   Создать товар
+                 </button>
+               </form>
+             </div>
+        ) : (
+          
+          <div>
+            <button type="button" onClick={handleEditClick}>Создать новый товар</button>
+          </div>
+        )}
+         <br />
+                 <div>
+                  <button onClick={() => navigate('/items')}>Редактировать товары</button>
+                </div>
       </div>
       <br />
       <div>

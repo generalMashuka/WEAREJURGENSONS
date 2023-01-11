@@ -77,7 +77,7 @@ const itemsSlice = createSlice({
       state.items = state.items.map((item) => (item.id === newItem.id ? newItem: item))
     })
     .addCase (itemUpdated.rejected, ( state, action) => {
-      state.loadError = action.error.message
+      state.updateError = action.error.message
     })
   },
 });

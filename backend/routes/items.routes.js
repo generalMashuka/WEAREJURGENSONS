@@ -74,7 +74,10 @@ itemsRouter.put('/:id', async( req, res ) => {
      if (!item) {
       res.status(404).json({success: false, message: 'Нет такой задачи'});
       return;
-     }     
+     }  
+     if ( !name.trim() || !price || !img.trim() || !description.trim() ) {
+      return res.status(422).json({ error: 'Заполните все поля' });
+    }   
      item.name = name,
      item.price = price,
      item.img = img,
