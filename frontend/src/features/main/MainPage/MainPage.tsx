@@ -1,14 +1,14 @@
+import ArticleView from '../../articles/ArticleView';
+import AboutUsView from './AboutUs/AboutUsView';
+import CategoriesPage from '../../categories/CategoriesPage/CategoriesPage';
+import styles from './styles.module.css';
+import starButton from './img/star_button.svg';
+import news1 from './img/news1.svg';
+import news2 from './img/news2.svg';
+import news3 from './img/news3.svg';
 
-import ArticleView from "../../articles/ArticleView";
-import AboutUsView from "./AboutUs/AboutUsView";
-import CategoriesPage from "../../categories/CategoriesPage/CategoriesPage";
-import styles from "./styles.module.css";
-import starButton from "./img/star_button.svg";
-import news1 from "./img/news1.svg";
-import news2 from "./img/news2.svg";
-import news3 from "./img/news3.svg";
-
-import videoPic from "./img/IMG_7272 1 1.svg"; // пока растянутое видео не готово - img заглушка
+import videoPic from './img/IMG_7272 1 1.svg'; // пока растянутое видео не готово - img заглушка
+import { Link } from 'react-router-dom';
 
 function MainPage(): JSX.Element {
   return (
@@ -28,7 +28,7 @@ function MainPage(): JSX.Element {
         <CategoriesPage />
 
         <div className={styles.links_container}>
-          {" "}
+          {' '}
           {/* может быть потом вынести блок в отдельную view */}
           <div className={styles.starButton}>
             <a href="/contacts">
@@ -43,7 +43,7 @@ function MainPage(): JSX.Element {
             </a>
           </div>
           <div className={styles.starButton}>
-            <a href="#">
+            <a href="/cart">
               <img className={styles.starImg} src={starButton} alt="" />
               <p className={styles.btn_text}>корзина</p>
             </a>
@@ -84,7 +84,6 @@ function MainPage(): JSX.Element {
               </div>
             </a>
           </div>
-
         </div>
       </div>
     </div>
