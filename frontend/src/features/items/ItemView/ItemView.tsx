@@ -165,6 +165,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 {item.name}
               </Link>
             </div>
+            <p>{item.price}</p>
             <img src={item.img} className={styles.img} alt="..." />
           </>
         )}

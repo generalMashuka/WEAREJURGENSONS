@@ -26,5 +26,5 @@ export async function login(credentials: Credentials): Promise<User > {
 }
 
 export async function logout(): Promise<void> {
-  await fetch('/api/auth/logout', { method: 'POST' });
+  await fetch('/api/auth/logout', { method: 'POST'});
 }

@@ -56,8 +56,7 @@ const authSlice = createSlice({
       else { state.user = data}
     })
     .addCase(loginSuccess.rejected, (state, action) => {
-      // в action.error попадёт ошибка сгенерированная санком
-      // state.user = undefined
+      //  state.createError = action.payload
         })
      .addCase(logoutSuccess.fulfilled, ( state, action ) => {
       state.user = undefined

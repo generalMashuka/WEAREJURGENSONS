@@ -10,11 +10,10 @@ function SortedItems(): JSX.Element {
   const items = useSelector(selectItems);
   const { id } = useParams();
   const loadError = useSelector(selectLoaderror);
-  
+
 const sortedItems = useMemo(() => {
 return items.filter((i) => i.category_id === Number(id));
 }, [id, items])
-
 
   return (
     <div>

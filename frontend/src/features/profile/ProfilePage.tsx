@@ -5,12 +5,15 @@ import { useAppDispatch } from "../../store";
 import React from "react";
 import { itemCreated } from "../items/itemsSlice";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUser } from "../auth/selectors";
 
 function ProfilePage(): JSX.Element {
   // const items = useSelector(selectItems);
   // const loadError = useSelector(selectLoaderror);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const user = useSelector(selectUser)
 
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState(0);
@@ -67,14 +70,21 @@ function ProfilePage(): JSX.Element {
     setCategory_id(Number(event.target.value));
   };
 
-  return (
+   if ( !user ) {
+    return (
+      <div className={styles.nonUserBox}>
+        <p className={styles.title}>Авторизуйтесь чтобы проссматривать профиль администратора</p>
+      </div>
+    )
+   }
+
+  return (    
     <div className={styles.maincontainer}>
       <h1>Профиль администратора</h1>
       <div className={styles.correctItemsBox}>
         <p className={styles.title}>Редактирование товаров</p>
         <div className={styles.newItemBox}>
           <p className={styles.title}>Создание нового товара</p>
-
           <form className={styles.inputGroup} onSubmit={handleSubmit}>
             <div className={styles.inputBox}>
               <label htmlFor="name-input" className={styles.formLabel}>
