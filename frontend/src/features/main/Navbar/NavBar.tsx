@@ -55,7 +55,7 @@ function NavBar(): JSX.Element {
           </a>
           <Link to="/cart">
             <img src={cartPic} alt="cartPic" />
-          </a>
+          </Link>
           { user && <a href="/profile">
             <img src={userPic} alt="userPic" />
           </a>
