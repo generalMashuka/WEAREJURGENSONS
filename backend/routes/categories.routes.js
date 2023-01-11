@@ -1,6 +1,7 @@
 const categoryRouter = require('express').Router();
 
 const { Category } = require('../db/models');
+const { Item } = require('../db/models');
 
 categoryRouter.get('/', async ( req, res ) => {
     try {
@@ -16,5 +17,6 @@ categoryRouter.get('/', async ( req, res ) => {
         res.status(500).json({ error: 'Непредвиденная ошибка сервера' });
     }
 })
+
 
 module.exports = categoryRouter;

@@ -19,7 +19,7 @@ export const userChecked = createAsyncThunk(
 
 export const loginSuccess = createAsyncThunk (
   'auth/loginSuccess',
-  async (credentials: Credentials) => {
+  async (credentials: Credentials ) => {
     const user  = await api.login(credentials);
     console.log(user)
     return user;
@@ -29,7 +29,7 @@ export const loginSuccess = createAsyncThunk (
 export const logoutSuccess = createAsyncThunk (
   'auth/logout',
   async () => {
-
+   await api.logout();
   }
 )
 
@@ -40,19 +40,28 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(userChecked.fulfilled, (state, action) => {
-        const user = action.payload;
-        if (!user.isLoggedIn) {
-         state.user = undefined;
+        const result = action.payload;
+        console.log(result);
+        if (result.isLoggedIn) {
+          state.user = result.user
+          state.authChecked = true
         } 
     })
+    .addCase(userChecked.rejected, (state, action) => {
+         state.authChecked = false
+    })
     .addCase(loginSuccess.fulfilled, ( state, action) => {
-      const user = action.payload;
-      state.user = user;
+      const data = action.payload;
+      if (data.error) {state.user = undefined} 
+      else { state.user = data}
     })
     .addCase(loginSuccess.rejected, (state, action) => {
       // в action.error попадёт ошибка сгенерированная санком
-      state.loadError = action.error.message;
-    });
+      // state.user = undefined
+        })
+     .addCase(logoutSuccess.fulfilled, ( state, action ) => {
+      state.user = undefined
+     })
   }
 });
 

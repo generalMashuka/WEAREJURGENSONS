@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-// import  logo  from './logo192.png'
 // import './NavBar.css'
 import styles from "./styles.module.css";
 import heartPic from "./img/HeartStraight.svg";
@@ -8,25 +7,24 @@ import cartPic from "./img/ShoppingCart.svg";
 import userPic from "./img/User.png";
 
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch} from "react-redux";
+import { useSelector} from "react-redux";
 import { selectUser } from "../../auth/selectors";
 import * as api from '../../auth/api';
 import { logoutSuccess } from "../../auth/authSlice";
+import { useAppDispatch } from "../../../store";
 
 
 function NavBar(): JSX.Element {
   const user = useSelector(selectUser)
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   console.log(user);
 
-  // const handleLogout = (event: React.FormEvent): void => {
-  //   event.preventDefault();
-  //   api.logout().then(() => {
-  //     dispatch(logoutSuccess());
-  //     navigate('/');
-  //   });
-  // }
+  const handleLogout = (event: React.FormEvent): void => {
+    event.preventDefault();
+      dispatch(logoutSuccess());
+      navigate('/');
+  }
   
   return (
     <div>
@@ -58,11 +56,12 @@ function NavBar(): JSX.Element {
           <Link to="/cart">
             <img src={cartPic} alt="cartPic" />
           </Link>
-          <a href="/profile">
+          { user && <a href="/profile">
             <img src={userPic} alt="userPic" />
           </a>
-          { user?.isAdmin && (
-          <a href="#" role="button" tabIndex={0} >
+          }
+          { user && (
+          <a href="#" role="button" tabIndex={0} onClick={handleLogout}>
           Выйти
         </a>
           )
