@@ -82,16 +82,18 @@ function NavBar(): JSX.Element {
           <Link to="/cart">
             <img src={cartPic} alt="cartPic" />
           </Link>
-          {user && (
-            <a href="/profile">
-              <img src={userPic} alt="userPic" />
-            </a>
-          )}
-          {user && (
-            <a href="#" role="button" tabIndex={0} onClick={handleLogout}>
-              Выйти
-            </a>
-          )}
+
+          { user && <Link to="/profile">
+            <img src={userPic} alt="userPic" />
+          </Link>
+          }
+          { user && (
+          <a href="#" role="button" tabIndex={0} onClick={handleLogout}>
+          Выйти
+        </a>
+          )
+          }
+
         </div>
       </nav>
     </div>

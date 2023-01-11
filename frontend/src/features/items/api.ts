@@ -25,7 +25,7 @@ export async function deleteItem (id: ItemId): Promise<number> {
 }
 
 export async function createItem (item: Item): Promise<Item> {
-  const response = await fetch ('api/items', {
+  const response = await fetch ('/api/items', {
     method: 'POST',
     body: JSON.stringify(item),
     headers: {
@@ -37,16 +37,20 @@ export async function createItem (item: Item): Promise<Item> {
     const { error } = await response.json();
     throw error;
   }
-  
-  return response.json();
+    return response.json();
 }
 
 export async function updateItem (item: Item): Promise<void> {
-  await fetch(`api/items/${item.id}`, {
+  const response = await fetch(`/api/items/${item.id}`, {
     method: 'PUT',  
     body: JSON.stringify(item),
     headers: {
       'Content-Type': 'application/json',
     },  })
+    if (response.status >= 400) {
+      const { error } = await response.json();
+      throw error;
+    }
+      return response.json();
 }
 

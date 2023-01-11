@@ -1,23 +1,26 @@
 import { useSelector } from "react-redux";
+import { memo, useMemo } from 'react';
 import ItemView from "../ItemView/ItemView";
 import { selectItems, selectLoaderror } from "../selectors";
-// import styles from "./styles.module.css";
-import * as api from '../api';
-import Item, { ItemId } from "../types/Item";
-import { useAppDispatch } from "../../../store";
-import { useParams } from "react-router-dom";
+import styles from "./styles.module.css";
+// import * as api from '../api';
+import { useNavigate, useParams } from "react-router-dom";
 
 function SortedItems(): JSX.Element {
   const items = useSelector(selectItems);
   const { id } = useParams();
   const loadError = useSelector(selectLoaderror);
-  const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
-const sortedItems = items.filter((i) => i.category_id === Number(id));
+const sortedItems = useMemo(() => {
+return items.filter((i) => i.category_id === Number(id));
+}, [id, items])
 
   return (
     <div>
       <div>
+        <div>
+          <button onClick={() => navigate('/items')}>Все товары</button></div>
         {loadError ? (
           <b>{loadError}</b>
         ) : (
@@ -31,4 +34,4 @@ const sortedItems = items.filter((i) => i.category_id === Number(id));
   );
 }
 
-export default SortedItems;
+export default memo(SortedItems);

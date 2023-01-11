@@ -5,6 +5,7 @@ import Item, { ItemId } from "../types/Item";
 import styles from "./styles.module.css";
 import { selectUser } from "../../auth/selectors";
 import React from "react";
+import { selectUpdateError } from "../selectors";
 
 type ItemProps = {
   item: Item;
@@ -18,6 +19,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
   //   navigate(`/items/${item.id}`);
   // };
   const user = useSelector(selectUser);
+  const updateError = useSelector(selectUpdateError)
 
   const [edit, setEdit] = React.useState(false);
 
@@ -94,6 +96,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Название товара
               </label>
               <input
+                required
                 type="text"
                 className={styles.input}
                 id="name-input"
@@ -107,6 +110,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Цена товара
               </label>
               <input
+              required
                 type="number"
                 className={styles.input}
                 id="price-input"
@@ -120,6 +124,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Описание товара
               </label>
               <input
+              required
                 type="text"
                 className={styles.input}
                 id="description-input"
@@ -133,6 +138,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Изображение
               </label>
               <input
+              required
                 type="text"
                 className={styles.input}
                 id="img-input"
@@ -161,6 +167,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 {item.name}
               </Link>
             </div>
+            <p>{item.price}</p>
             <img src={item.img} className={styles.img} alt="..." />
           </>
         )}
@@ -177,6 +184,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
           )}
         </div>
       </div>
+
     </div>
   );
 }

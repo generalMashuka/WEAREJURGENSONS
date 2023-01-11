@@ -77,7 +77,7 @@ const itemsSlice = createSlice({
       })
       .addCase(itemUpdated.rejected, (state, action) => {
         state.loadError = action.error.message;
-      });
+    })
   },
 });
 
