@@ -1,3 +1,4 @@
+
 import { useSelector } from "react-redux";
 import ItemView from "../ItemView/ItemView";
 import { selectItems, selectLoaderror, selectUpdateError } from "../selectors";
@@ -7,7 +8,6 @@ import Item, { ItemId } from "../types/Item";
 import { itemDeleted, itemUpdated } from "../itemsSlice";
 import { useAppDispatch } from "../../../store";
 import React, { useMemo, useState } from "react";
-import ItemData from "../types/ItemData";
 
 
 
@@ -55,14 +55,13 @@ function ItemsPage(): JSX.Element {
   };
 
   const handleItemRemove = (id: ItemId): void => {
-    
+
     dispatch(itemDeleted(id));
   };
 
   const handleItemUpdate = (item: Item): void => {
     dispatch(itemUpdated(item));
   };
-
 
 
   return (
@@ -92,7 +91,9 @@ function ItemsPage(): JSX.Element {
         {loadError ? (
           <b>{loadError}</b>
         ) : (
+
           finalItems.map((item) => (
+
             <ItemView
               key={item.id}
               item={item}

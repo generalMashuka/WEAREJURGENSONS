@@ -26,11 +26,11 @@ import SortedItems from '../features/items/SortedItems/SortedItems';
 
 import ItemPage from '../features/items/ItemPage/ItemPage';
 import CartPage from '../features/cart/cartPage/CartPage';
-
+import Search from '../features/items/Search/Search';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
- 
+
   const authChecked = useSelector(selectAuthChecked);
 
   useEffect(() => {
@@ -43,17 +43,16 @@ function App(): JSX.Element {
     <div>
       <NavBar />
       <Routes>
-
-          <Route path="/" element={<MainPage />} />
-          <Route path="/admin" element={<AuthPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/items" element={<ItemsPage />} />
-          <Route path="/items/:id" element={<ItemPage />} />
-          <Route path="/categories/:id" element={<SortedItems />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/cart" element={<CartPage />} />
-
+        <Route path="/" element={<MainPage />} />
+        <Route path="/admin" element={<AuthPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/items" element={<ItemsPage />} />
+        <Route path="/items/:id" element={<ItemPage />} />
+        <Route path="/categories/:id" element={<SortedItems />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </div>
   );
