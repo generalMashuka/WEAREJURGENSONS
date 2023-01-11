@@ -10,6 +10,7 @@ import CartItemView from '../cartItem/CartItemView';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../store';
+import Total from '../total/Total';
 
 function CartPage(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -57,7 +58,12 @@ function CartPage(): JSX.Element {
             </div>
           ) : (
             <div>
-              <button onClick={handleOrderButton}>Оформить заказ</button>
+              <div>
+                <Total />
+              </div>
+              <div>
+                <button onClick={handleOrderButton}>Оформить заказ</button>
+              </div>
             </div>
           )}
         </>

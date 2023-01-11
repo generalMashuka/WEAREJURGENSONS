@@ -16,6 +16,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+// import searchSlice from './features/items/searchSlice';
 
 const persistConfig = {
   key: 'root',
