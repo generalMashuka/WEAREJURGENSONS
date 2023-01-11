@@ -1,4 +1,4 @@
-import Category from "./types/Category";
+import Category, { CategoryId } from "./types/Category";
 
 export async function loadCategories(): Promise<Category[]> {
   

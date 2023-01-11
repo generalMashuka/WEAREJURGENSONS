@@ -1,36 +1,29 @@
 import { useSelector } from "react-redux";
 import ItemView from "../ItemView/ItemView";
 import { selectItems, selectLoaderror } from "../selectors";
-import styles from "./styles.module.css";
+// import styles from "./styles.module.css";
 import * as api from '../api';
 import Item, { ItemId } from "../types/Item";
-import { itemDeleted, itemUpdated } from "../itemsSlice";
 import { useAppDispatch } from "../../../store";
+import { useParams } from "react-router-dom";
 
-function ItemsPage(): JSX.Element {
+function SortedItems(): JSX.Element {
   const items = useSelector(selectItems);
+  const { id } = useParams();
   const loadError = useSelector(selectLoaderror);
   const dispatch = useAppDispatch();
 
-  const handleItemRemove = (id: ItemId): void => {
-      dispatch(itemDeleted(id));
-  };
-
-  const handleItemUpdate = (item: Item): void => {
-    dispatch(itemUpdated(item))
-  }
+const sortedItems = items.filter((i) => i.category_id === Number(id));
 
   return (
     <div>
-      <div className={styles.cards}>
+      <div>
         {loadError ? (
           <b>{loadError}</b>
         ) : (
-          items.map((item) => <ItemView 
+          sortedItems.map((item) => <ItemView 
           key={item.id} 
           item={item}
-          onRemove={handleItemRemove}
-          onUpdate={handleItemUpdate}
           />)
         )}
       </div>
@@ -38,4 +31,4 @@ function ItemsPage(): JSX.Element {
   );
 }
 
-export default ItemsPage;
+export default SortedItems;

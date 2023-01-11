@@ -14,6 +14,7 @@ export const loadCategories = createAsyncThunk(
     }
 );
 
+
 const categoriesSlice = createSlice({
     name: 'categories',
     initialState,
@@ -26,7 +27,7 @@ const categoriesSlice = createSlice({
         })
         .addCase(loadCategories.rejected, (state, action) => {
             state.loadError = action.error.message;
-          });
+          })
     },
 });
 

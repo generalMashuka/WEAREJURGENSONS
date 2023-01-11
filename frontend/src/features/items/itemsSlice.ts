@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import ItemsState from './types/State';
 import * as api from './api';
-import { ItemId } from './types/Item';
+import Item, { ItemId } from './types/Item';
 
 // 1. начальное состояние
 const initialState: ItemsState = {
@@ -23,11 +23,25 @@ export const loadItems = createAsyncThunk(
 export const itemDeleted = createAsyncThunk(
   'items/itemDeleted',
   async(id: ItemId) => {
- return await api.deleteItem(id)
+ await api.deleteItem(id)
+ return id;
   }
 )
 
-// 3. Сам слайс с редьюсерами
+export const itemCreated = createAsyncThunk(
+  'items/itemCreated',
+  async(item: Item) => {
+return await api.createItem(item)
+  }
+)
+
+export const itemUpdated = createAsyncThunk(
+  'items/itemUpdated',
+  async(item: Item) => {
+    await api.updateItem(item)
+    return item;
+  }
+)
 
 const itemsSlice = createSlice({
   name: 'items',
@@ -36,20 +50,35 @@ const itemsSlice = createSlice({
   // здесь описываем реакции на асинхронные операции (санки)
   extraReducers: (builder) => {
     builder
-      // когда thunk loadSuggestions завершиться удачей (fulfilled)
       // то выполни этот редьюсер (измени стэйт)
-      .addCase(loadItems.fulfilled, (state, action) => {
+    .addCase(loadItems.fulfilled, (state, action) => {
         const items = action.payload;
         state.items = items;
-      })
-      // когда thunk loadSuggestions завершиться неудачей
-      .addCase(loadItems.rejected, (state, action) => {
+    })
+    // когда thunk loadSuggestions завершиться неудачей
+    .addCase(loadItems.rejected, (state, action) => {
         // в action.error попадёт ошибка сгенерированная санком
         state.loadError = action.error.message;
-      })
-      .addCase( itemDeleted.fulfilled, ( state, action) => {
+    })
+    .addCase( itemDeleted.fulfilled, ( state, action ) => {
           state.items = state.items.filter((item) => item.id !== action.payload)
-      })
+    })
+    .addCase(itemDeleted.rejected, ( state, action)  => {
+        state.loadError = action.error.message;
+    })
+    .addCase( itemCreated.fulfilled, ( state, action ) => {
+        state.items.push(action.payload)
+    })
+    .addCase(itemCreated.rejected, (state, action) => {
+      state.loadError = action.error.message
+    })
+    .addCase (itemUpdated.fulfilled, (state, action) => {
+      const newItem  = action.payload
+      state.items = state.items.map((item) => (item.id === newItem.id ? newItem: item))
+    })
+    .addCase (itemUpdated.rejected, ( state, action) => {
+      state.loadError = action.error.message
+    })
   },
 });
 

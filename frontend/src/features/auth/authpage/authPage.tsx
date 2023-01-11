@@ -27,28 +27,19 @@ function AuthPage(): JSX.Element {
         event.preventDefault();
     
         // отправляем запрос на сервер для логина
-        api
-          .login({
-            name,
-            password,
-          })
-          .then((user) => {
-            // если сервер вернул ответ об успешном входе делаем dispatch, чтобы положить юзера в стэйт
+
             dispatch(loginSuccess({name, password}));
-    
-            //редиректим пользователя на главную
-            navigate('/profile');
-          });
+          if ( user) {navigate('/profile') }          
       };
       
         
     return (
         <form className="auth-form" onSubmit={handleSubmit} >
-        <h2>Вход</h2>
+        { !user && <h2>Вход</h2> }
         { user && (
           <h2>Ты уже залогинен</h2>
         )}
-        <div className="mb-3">
+        { !user && (<><div className="mb-3">
           <label htmlFor="name-input" className="form-label">
             Имя
           </label>
@@ -58,25 +49,22 @@ function AuthPage(): JSX.Element {
             id="name-input"
             name="username"
             value={name}
-            onChange={handleNameChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password-input" className="form-label">
-            Пароль
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password-input"
-            name="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Войти
-        </button>
+            onChange={handleNameChange} />
+        </div><div className="mb-3">
+            <label htmlFor="password-input" className="form-label">
+              Пароль
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="password-input"
+              name="password"
+              value={password}
+              onChange={handlePasswordChange} />
+          </div><button type="submit" className="btn btn-primary">
+            Войти
+          </button></>) }
+        
       </form>
       );
 }
