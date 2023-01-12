@@ -1,0 +1,30 @@
+.mainForm {
+
+margin-top: 60px;
+ display: flex;
+ flex-direction: column;
+align-items: center;
+gap: 20px;
+}
+
+.inputbox {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.title {
+    font-size: 35px;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.errorText {
+    display: flex;
+    font-display: column;
+    align-items: center;
+}
