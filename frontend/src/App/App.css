@@ -4,7 +4,9 @@
 }
 
 body {
+    background-image: url('./net.svg');
+
     /* background-color: #F6EFE7; */
-    background: linear-gradient(to right, #F6EFE7 59%, #CBBEAF 41%);
+    /* background: linear-gradient(to right, #F6EFE7 59%, #CBBEAF 41%); */
     
 }

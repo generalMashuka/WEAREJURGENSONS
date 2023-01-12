@@ -11,7 +11,7 @@ function AuthPage(): JSX.Element {
   const user = useSelector(selectUser);
   const CreateError = useSelector(selectCreateError);
   console.log(CreateError);
-  
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -41,7 +41,7 @@ function AuthPage(): JSX.Element {
 
   return (
     <div className={styles.mainContainer}>
-      { !CreateError ? (
+      {!CreateError ? (
         <form className={styles.mainForm} onSubmit={handleSubmit}>
           {/* {!user && <p className={styles.title}>Вход</p>} */}
           {/* {user && <h2>Ты уже залогинен</h2>} */}
@@ -56,7 +56,7 @@ function AuthPage(): JSX.Element {
                   placeholder="введите логин"
                   required
                   type="text"
-                  className="form-control"
+                  className={styles.input}
                   id="name-input"
                   name="username"
                   value={name}
@@ -72,26 +72,25 @@ function AuthPage(): JSX.Element {
                   autoComplete="off"
                   placeholder="введите пароль"
                   type="password"
-                  className="form-control"
+                  className={styles.input}
                   id="password-input"
                   name="password"
                   value={password}
                   onChange={handlePasswordChange}
                 />
               </div>
-              <button type="submit" className={styles.text}>
+              <button type="submit" className={styles.btn}>
                 Войти
               </button>
             </>
           )}
         </form>
-      ): (
+      ) : (
         <form className={styles.mainForm} onSubmit={handleSubmit}>
-        {/* {!user && <p className={styles.title}>Вход</p>} */}
-        {!user && (
-          <>
-         
-          <div className={styles.inputbox}>
+          {/* {!user && <p className={styles.title}>Вход</p>} */}
+          {!user && (
+            <>
+              <div className={styles.inputbox}>
                 <label htmlFor="name-input" className={styles.text}>
                   Login
                 </label>
@@ -100,7 +99,7 @@ function AuthPage(): JSX.Element {
                   placeholder="введите логин"
                   required
                   type="text"
-                  className="form-control"
+                  className={styles.input}
                   id="name-input"
                   name="username"
                   value={name}
@@ -116,24 +115,22 @@ function AuthPage(): JSX.Element {
                   autoComplete="off"
                   placeholder="введите пароль"
                   type="password"
-                  className="form-control"
+                  className={styles.input}
                   id="password-input"
                   name="password"
                   value={password}
                   onChange={handlePasswordChange}
                 />
               </div>
-              <button type="submit" className={styles.text}>
+              <button type="submit" className={styles.btn}>
                 Войти
               </button>
-          </>
-        )}
-        <div className={styles.errorText}>
-        <p>Неправильный логин или пароль</p>
-        </div>
-        
-      </form>
-        
+            </>
+          )}
+          <div className={styles.errorText}>
+            <p>Неправильный логин или пароль</p>
+          </div>
+        </form>
       )}
     </div>
   );

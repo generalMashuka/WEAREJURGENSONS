@@ -2,13 +2,26 @@
     display: flex;
     justify-content: center;
     background: linear-gradient(to right, #F6EFE7 59%, #CBBEAF 41%);
-    margin-top: 50px;
-    margin-bottom: 102px;
+    /* margin-top: 50px; */
+    /* margin-bottom: 102px; */
+    padding-bottom: 102px;
+    
+   
+
+}
+
+video {
+    width: 80%;
 }
 
 html {
     scroll-behavior: smooth;
 }
+
+
+/* body{
+    background-image: url('./img/net.svg');
+} */
 
 .main_container {
     background-image: url('./img/net.svg');

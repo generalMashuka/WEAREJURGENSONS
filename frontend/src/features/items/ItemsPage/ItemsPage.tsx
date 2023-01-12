@@ -55,7 +55,6 @@ function ItemsPage(): JSX.Element {
   };
 
   const handleItemRemove = (id: ItemId): void => {
-
     dispatch(itemDeleted(id));
   };
 

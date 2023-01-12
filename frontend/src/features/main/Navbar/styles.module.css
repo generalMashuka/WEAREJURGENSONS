@@ -5,9 +5,10 @@
     flex-direction: row;
     flex-wrap: nowrap;
     margin: auto;
-    margin-top: 39px;
+    padding-top: 25px;
     margin-left: 40px;
-    
+    align-items: center;
+    justify-content: center;
   }
     
   a {
@@ -15,7 +16,17 @@
     color: black;
   }
 
+  /* body {
+     background: linear-gradient(to right, #F6EFE7 59%, c 41%);
+     height: 118px;
+  } */
 
+  .mainContainer {
+
+    background: linear-gradient(to right, #F6EFE7 59%, #CBBEAF 41%);
+    height: 90px;
+    
+  }
   
   a:hover {
     text-decoration: none;
