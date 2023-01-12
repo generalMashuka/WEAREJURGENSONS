@@ -4,69 +4,136 @@ import styles from "./styles.module.css";
 import { useAppDispatch } from "../../../store";
 import { useNavigate } from "react-router-dom";
 import { loginSuccess } from "../authSlice";
-import * as api from '../api';
-import { selectUser } from "../selectors";
+import * as api from "../api";
+import { selectCreateError, selectUser } from "../selectors";
 
 function AuthPage(): JSX.Element {
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
+  const CreateError = useSelector(selectCreateError);
+  console.log(CreateError);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-    const [name, setName] = React.useState('');
-    const [password, setPassword] = React.useState('');
+  const [name, setName] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        setName(event.target.value);
-      };
+  const handleNameChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setName(event.target.value);
+  };
 
-      const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        setPassword(event.target.value);
-      };
+  const handlePasswordChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setPassword(event.target.value);
+  };
 
-      const handleSubmit = (event: React.FormEvent): void => {
-        event.preventDefault();
-    
-        // отправляем запрос на сервер для логина
+  const handleSubmit = (event: React.FormEvent): void => {
+    event.preventDefault();
+    dispatch(loginSuccess({ name, password }));
+  };
 
-            dispatch(loginSuccess({name, password}));
-          if ( user) {navigate('/profile') }          
-      };
-      
-        
-    return (
-        <form className="auth-form" onSubmit={handleSubmit} >
-        { !user && <h2>Вход</h2> }
-        { user && (
-          <h2>Ты уже залогинен</h2>
-        )}
-        { !user && (<><div className="mb-3">
-          <label htmlFor="name-input" className="form-label">
-            Имя
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="name-input"
-            name="username"
-            value={name}
-            onChange={handleNameChange} />
-        </div><div className="mb-3">
-            <label htmlFor="password-input" className="form-label">
-              Пароль
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="password-input"
-              name="password"
-              value={password}
-              onChange={handlePasswordChange} />
-          </div><button type="submit" className="btn btn-primary">
-            Войти
-          </button></>) }
-        
-      </form>
-      );
+  if (user) {
+    navigate("/profile");
+  }
+
+  return (
+    <div className={styles.mainContainer}>
+      {!CreateError ? (
+        <form className={styles.mainForm} onSubmit={handleSubmit}>
+          {/* {!user && <p className={styles.title}>Вход</p>} */}
+          {/* {user && <h2>Ты уже залогинен</h2>} */}
+          {!user && (
+            <>
+              <div className={styles.inputbox}>
+                <label htmlFor="name-input" className={styles.text}>
+                  Login
+                </label>
+                <input
+                  autoComplete="off"
+                  placeholder="введите логин"
+                  required
+                  type="text"
+                  className={styles.input}
+                  id="name-input"
+                  name="username"
+                  value={name}
+                  onChange={handleNameChange}
+                />
+              </div>
+              <div className={styles.inputbox}>
+                <label htmlFor="password-input" className="form-label">
+                  Пароль
+                </label>
+                <input
+                  required
+                  autoComplete="off"
+                  placeholder="введите пароль"
+                  type="password"
+                  className={styles.input}
+                  id="password-input"
+                  name="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </div>
+              <button type="submit" className={styles.btn}>
+                Войти
+              </button>
+            </>
+          )}
+        </form>
+      ) : (
+        <form className={styles.mainForm} onSubmit={handleSubmit}>
+          {/* {!user && <p className={styles.title}>Вход</p>} */}
+          {!user && (
+            <>
+              <div className={styles.inputbox}>
+                <label htmlFor="name-input" className={styles.text}>
+                  Login
+                </label>
+                <input
+                  autoComplete="off"
+                  placeholder="введите логин"
+                  required
+                  type="text"
+                  className={styles.input}
+                  id="name-input"
+                  name="username"
+                  value={name}
+                  onChange={handleNameChange}
+                />
+              </div>
+              <div className={styles.inputbox}>
+                <label htmlFor="password-input" className="form-label">
+                  Пароль
+                </label>
+                <input
+                  required
+                  autoComplete="off"
+                  placeholder="введите пароль"
+                  type="password"
+                  className={styles.input}
+                  id="password-input"
+                  name="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </div>
+              <button type="submit" className={styles.btn}>
+                Войти
+              </button>
+            </>
+          )}
+          <div className={styles.errorText}>
+            <p>Неправильный логин или пароль</p>
+          </div>
+        </form>
+      )}
+    </div>
+  );
 }
 
-export default AuthPage
+export default AuthPage;

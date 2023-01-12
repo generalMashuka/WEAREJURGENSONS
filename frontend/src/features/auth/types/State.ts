@@ -5,6 +5,7 @@ type AuthState = {
   error?: string;
   user?: User;
   loadError?: string;
+  createError?: string;
 };
 
 export default AuthState;
