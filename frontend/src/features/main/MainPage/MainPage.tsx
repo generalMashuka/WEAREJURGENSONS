@@ -17,11 +17,11 @@ function MainPage(): JSX.Element {
       {/* видео - блок */}
       <div>
         <div className={styles.video_container}>
-          <img src={videoPic} alt="video" />
-          {/* <video className='video-clip' width="320" height="240" autoPlay loop muted>
-        <source src={require('./img/IMG_5228.webm')} type="video/mp4" />
+          {/* <img src={videoPic} alt="video" /> */}
+          <video autoPlay loop muted>
+        <source src={require('./img/IMG_9113.webm')} type="video/webm" />
         Your browser does not support the video tag.
-      </video> */}
+      </video>
         </div>
       </div>
       {/* блок - основной страницы */}

@@ -45,7 +45,7 @@ function NavBar(): JSX.Element {
   };
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <nav className={styles.header}>
         <Link to="/" style={{ fontSize: '24px' }}>
           Jurgensons
@@ -55,7 +55,11 @@ function NavBar(): JSX.Element {
           <div className={styles.titlecontainer}>
             {user && <div className={styles.link}>Привет, {user.name}</div>}
             <Link to="/items">Каталог</Link>
-            <Link to="/contacts">Контакты</Link>
+
+            { !user && (
+              <Link to="/contacts">Контакты</Link>
+            )}
+            
           </div>
 
           {!statusSearch ? (
@@ -74,9 +78,13 @@ function NavBar(): JSX.Element {
               </button>
             </form>
           )}
+
+          { !user && (
           <Link to="/cart">
-            <img src={cartPic} alt="cartPic" />
-          </Link>
+          <img src={cartPic} alt="cartPic" />
+        </Link>
+          )}
+
 
 
           { user && <Link to="/profile">
