@@ -81,6 +81,17 @@
   margin: 20px 0;
 }
 
+
+@media screen and (max-width: 1024px){
+  .card {
+    width: 49%;
+  }
+}@media screen and (max-width: 425px){
+  .card {
+    width: 100%;
+  }
+}
+
 .formLabel {
 display: flex;
 flex-direction: column;
@@ -146,3 +157,4 @@ margin-top: 5px;
 .btn:active {
   background: #cbbeaf;
 }
+
