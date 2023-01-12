@@ -161,6 +161,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
           </div>
         ) : (
           <>
+            <img src={item.img} className={styles.img} alt="..." />
             <div className={styles.name}>
               <Link to={`/items/${item.id}`} style={{ fontSize: '24px' }}>
                 {item.name}
@@ -169,7 +170,6 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 <p>{item.price} рублей</p>
               </div>
             </div>
-            <img src={item.img} className={styles.img} alt="..." />
           </>
         )}
         <div className={styles.btnBox}>

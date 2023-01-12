@@ -17,7 +17,7 @@ function CartItemView({ cartItem }: CartItemViewProps): JSX.Element {
 
   return (
     <div className={styles.card}>
-      <img src={cartItem.item.img} className="card-img" alt="..." />
+      <img src={cartItem.item.img} className={styles.img} alt="..." />
       <div className={styles.text}>
         <p className={styles.textP}>{cartItem.item.name}</p>
         <p>

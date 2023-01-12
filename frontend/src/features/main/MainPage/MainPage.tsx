@@ -8,8 +8,10 @@ import news2 from './img/news2.svg';
 import news3 from './img/news3.svg';
 import upButton from './img/up.png'
 
+
 import videoPic from './img/IMG_7272 1 1.svg'; // пока растянутое видео не готово - img заглушка
 import { Link } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 function MainPage(): JSX.Element {
   return (
@@ -92,6 +94,7 @@ function MainPage(): JSX.Element {
             </a>
           </div>
       </div>
+    
     </div>
   );
 }
