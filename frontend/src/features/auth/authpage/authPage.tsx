@@ -40,18 +40,20 @@ function AuthPage(): JSX.Element {
   }
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       { !CreateError ? (
-        <form className="auth-form" onSubmit={handleSubmit}>
-          {!user && <h2>Вход</h2>}
+        <form className={styles.mainForm} onSubmit={handleSubmit}>
+          {/* {!user && <p className={styles.title}>Вход</p>} */}
           {/* {user && <h2>Ты уже залогинен</h2>} */}
           {!user && (
             <>
-              <div className="mb-3">
-                <label htmlFor="name-input" className="form-label">
-                  Имя
+              <div className={styles.inputbox}>
+                <label htmlFor="name-input" className={styles.text}>
+                  Login
                 </label>
                 <input
+                  autoComplete="off"
+                  placeholder="введите логин"
                   required
                   type="text"
                   className="form-control"
@@ -61,12 +63,14 @@ function AuthPage(): JSX.Element {
                   onChange={handleNameChange}
                 />
               </div>
-              <div className="mb-3">
+              <div className={styles.inputbox}>
                 <label htmlFor="password-input" className="form-label">
                   Пароль
                 </label>
                 <input
                   required
+                  autoComplete="off"
+                  placeholder="введите пароль"
                   type="password"
                   className="form-control"
                   id="password-input"
@@ -75,51 +79,56 @@ function AuthPage(): JSX.Element {
                   onChange={handlePasswordChange}
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className={styles.text}>
                 Войти
               </button>
             </>
           )}
         </form>
       ): (
-        <form className="auth-form" onSubmit={handleSubmit}>
-        {!user && <h2>Вход</h2>}
+        <form className={styles.mainForm} onSubmit={handleSubmit}>
+        {/* {!user && <p className={styles.title}>Вход</p>} */}
         {!user && (
           <>
-            <div className="mb-3">
-              <label htmlFor="name-input" className="form-label">
-                Имя
-              </label>
-              <input
-                required
-                type="text"
-                className="form-control"
-                id="name-input"
-                name="username"
-                value={name}
-                onChange={handleNameChange}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password-input" className="form-label">
-                Пароль
-              </label>
-              <input
-                required
-                type="password"
-                className="form-control"
-                id="password-input"
-                name="password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Войти
-            </button>
+         
+          <div className={styles.inputbox}>
+                <label htmlFor="name-input" className={styles.text}>
+                  Login
+                </label>
+                <input
+                  autoComplete="off"
+                  placeholder="введите логин"
+                  required
+                  type="text"
+                  className="form-control"
+                  id="name-input"
+                  name="username"
+                  value={name}
+                  onChange={handleNameChange}
+                />
+              </div>
+              <div className={styles.inputbox}>
+                <label htmlFor="password-input" className="form-label">
+                  Пароль
+                </label>
+                <input
+                  required
+                  autoComplete="off"
+                  placeholder="введите пароль"
+                  type="password"
+                  className="form-control"
+                  id="password-input"
+                  name="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </div>
+              <button type="submit" className={styles.text}>
+                Войти
+              </button>
           </>
         )}
-        <div>
+        <div className={styles.errorText}>
         <p>Неправильный логин или пароль</p>
         </div>
         

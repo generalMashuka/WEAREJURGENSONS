@@ -6,9 +6,13 @@
     margin-bottom: 102px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .main_container {
- /* background-image: url('./img/main-bcg.svg'); */
- background-color:  white;
+    background-image: url('./img/net.svg');
+     background-color:  white;
  /* background-image: url('./1642908254_19-abrakadabra-fun-p-setka-tetradi-v-kletku-29.png'); */
 }
 
@@ -102,3 +106,13 @@ margin-left: 50%;
 margin-right: 50%;
 font-size: 29px;
 }
+
+.upButton {
+display: flex;
+justify-content: center;
+scale: 90%;
+
+}
+
+
+

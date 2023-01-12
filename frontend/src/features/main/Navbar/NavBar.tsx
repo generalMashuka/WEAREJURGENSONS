@@ -51,6 +51,16 @@ function NavBar(): JSX.Element {
           Jurgensons
         </Link>
 
+
+        <div className={styles.titlecontainer}>
+          {user && <div>Привет, {user.name}</div>}
+          <Link className={styles.link} to="/about">
+            О нас
+          </Link>
+          <Link className={styles.link} to="/items">Каталог</Link>
+          <Link className={styles.link} to="/contacts">Контакты</Link>
+        </div>
+
         <div className={styles.buttoncontainer}>
           <div className={styles.titlecontainer}>
             {user && <div className={styles.link}>Привет, {user.name}</div>}
