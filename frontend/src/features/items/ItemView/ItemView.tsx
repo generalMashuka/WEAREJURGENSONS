@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import Item, { ItemId } from '../types/Item';
-import styles from './styles.module.css';
-import { selectUser } from '../../auth/selectors';
-import React from 'react';
-import { selectUpdateError } from '../selectors';
+import Item, { ItemId } from "../types/Item";
+import styles from "./styles.module.css";
+import { selectUser } from "../../auth/selectors";
+import React from "react";
+import { selectUpdateError } from "../selectors";
 
 type ItemProps = {
   item: Item;
@@ -90,7 +90,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
     <div className={styles.card}>
       <div className={styles.pic}>
         {edit ? (
-          <div style={{ marginBottom: 10 }}>
+          <div className={styles.editBox} style={{ marginBottom: 10 }}>
             <div className={styles.inputBox}>
               <label htmlFor="name-input" className={styles.formLabel}>
                 Название товара
@@ -151,7 +151,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
               <label className={styles.formLabel}>
                 Выберите категорию товара
               </label>
-              <select onChange={handleCategory_id}>
+              <select className={styles.input} onChange={handleCategory_id}>
                 <option value="1">Категория 1</option>
                 <option value="2">Категория 2</option>
                 <option value="3">Категория 3</option>
@@ -163,7 +163,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
           <>
             <img src={item.img} className={styles.img} alt="..." />
             <div className={styles.name}>
-              <Link to={`/items/${item.id}`} style={{ fontSize: '24px' }}>
+              <Link to={`/items/${item.id}`} style={{ fontSize: "24px" }}>
                 {item.name}
               </Link>
               <div className={styles.price}>
@@ -179,8 +179,8 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
             </button>
           )}
           {user && (
-            <button onClick={handleEditClick}>
-              {edit ? 'Изменить товар' : 'Редактировать'}
+            <button className={styles.btn} onClick={handleEditClick}>
+              {edit ? "Изменить товар" : "Редактировать"}
             </button>
           )}
         </div>

@@ -8,14 +8,13 @@ import news2 from './img/news2.svg';
 import news3 from './img/news3.svg';
 import upButton from './img/up.png'
 
-
 import videoPic from './img/IMG_7272 1 1.svg'; // пока растянутое видео не готово - img заглушка
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 
 function MainPage(): JSX.Element {
   return (
-    <div>
+    <div id="links">
       {/* видео - блок */}
       <div>
         <div className={styles.video_container}>
@@ -29,7 +28,7 @@ function MainPage(): JSX.Element {
       {/* блок - основной страницы */}
       <div className={styles.main_container}>
         <CategoriesPage />
-        <div id="links" className={styles.links_container}>
+        <div className={styles.links_container}>
           {' '}
           {/* может быть потом вынести блок в отдельную view */}
           <div className={styles.starButton}>
@@ -90,7 +89,7 @@ function MainPage(): JSX.Element {
        
         <div className={styles.upButton}>
             <a href="#links">
-              <img className={styles.upButton} src={upButton} alt="" />
+              Наверх
             </a>
           </div>
       </div>

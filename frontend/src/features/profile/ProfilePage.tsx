@@ -20,7 +20,7 @@ function ProfilePage(): JSX.Element {
   const [edit, setEdit] = React.useState(false);
 
   const [name, setName] = React.useState("");
-  const [price, setPrice] = React.useState(0);
+  const [price, setPrice] = React.useState(Number(""));
   const [img, setImg] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [category_id, setCategory_id] = React.useState(1);
@@ -38,7 +38,7 @@ function ProfilePage(): JSX.Element {
       })
     );
     setName("");
-    setPrice(0);
+    setPrice(Number(""));
     setImg("");
     setDescription("");
     navigate("/items");
@@ -122,7 +122,7 @@ function ProfilePage(): JSX.Element {
                   placeholder="введите цену товара"
                   autoComplete="off"
                   required
-                  type="number"
+                  type="text"
                   className={styles.input}
                   id="price-input"
                   name="price"

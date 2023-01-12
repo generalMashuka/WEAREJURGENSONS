@@ -41,24 +41,33 @@ function CartPage(): JSX.Element {
 
   return (
     <div className={styles.cart}>
-      <p className={styles.cart}>Корзина</p>
+
+      <p className={styles.cartTiitle}>Корзина</p>
 
       {succsess ? (
-        <h4>Заказ оформлен. с Вами свяжется наш менеджер.</h4>
+        <p className={styles.cartText}>Заказ оформлен. с Вами свяжется наш менеджер.</p>
       ) : (
         <>
           <div className={styles.items}>
+            { cartItems.length === 0 && (
+              <div>
+                <p className={styles.cartText}>Ваша корзина пуста. Перейдите в каталог для добавления товара</p>
+              </div>
+            )}
             {cartItems?.map((item) => (
               <CartItemView key={item.item.id} cartItem={item} />
             ))}
           </div>
           {order ? (
             <div>
+              { cartItems.length !== 0 && (
               <div>
-                <Total />
-              </div>
+              <Total />
+            </div>
+              ) }
               <form onSubmit={handleSend}>
-                <h4>Пожалуйста, введите ваши контактные данные для связи:</h4>
+
+              <p>Оставьте контактные данные для оформления заказа</p>
                 <input
                   className={styles.input}
                   required
@@ -66,6 +75,7 @@ function CartPage(): JSX.Element {
                   value={text}
                   onChange={handleTextInput}
                 />
+                
                 <button className={styles.btnDelet} type="submit">
                   Подтвердить оформление заказа
                 </button>
@@ -74,12 +84,16 @@ function CartPage(): JSX.Element {
           ) : (
             <div>
               <div className={styles.btn}>
-                <div>
-                  <Total />
-                </div>
+              { cartItems.length !== 0 && (
+              <div>
+              <Total />
+            </div>
+              ) }
+              { cartItems.length !== 0 && (
                 <button className={styles.btnDelet} onClick={handleOrderButton}>
-                  Оформить заказ
-                </button>
+                Оформить заказ
+              </button>
+              )}
               </div>
             </div>
           )}

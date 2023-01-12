@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react';
 import styles from './styles.module.css';
 import heartPic from './img/HeartStraight.svg';
 import searchPic from './img/MagnifyingGlass.png';
-import cartPic from './img/ShoppingCart.svg';
+import cartPic from './img/catr.png';
 import userPic from './img/User.png';
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -53,11 +53,11 @@ function NavBar(): JSX.Element {
 
         <div className={styles.buttoncontainer}>
           <div className={styles.titlecontainer}>
-            {user && <div className={styles.link}>Привет, {user.name}</div>}
-            <Link to="/items">Каталог</Link>
+            {user && <div>Привет, {user.name}</div>}
+            <Link className={styles.link} to="/items">Каталог</Link>
 
             { !user && (
-              <Link to="/contacts">Контакты</Link>
+              <Link className={styles.link} to="/contacts">Контакты</Link>
             )}
             
           </div>

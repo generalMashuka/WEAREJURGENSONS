@@ -29,6 +29,10 @@
   background-color: rgb(165, 135, 135);
 }
 
+.editBox {
+  margin-top: 25px;
+}
+
 .text {
   margin-top: auto;
   margin-bottom: auto;
@@ -77,6 +81,7 @@
   margin: 20px 0;
 }
 
+
 @media screen and (max-width: 1024px){
   .card {
     width: 49%;
@@ -86,3 +91,70 @@
     width: 100%;
   }
 }
+
+.formLabel {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 2px;
+margin-top: 4px;
+font-size: 17px;
+
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.input {
+  width: 70%;
+margin: auto;
+margin-top: 5px;
+}
+
+.buyButton:hover {
+  background: #d7dbe3;
+}
+
+.buyButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #bbbcc0;
+}
+
+.buyButton {
+  margin-top: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 10%;
+  background: rgb(225, 215, 215);
+  color: rgb(84, 78, 78);
+  padding: 6px 14px;
+  font-size: 14px;
+  margin-right: 1%;
+}
+
+.btn {
+  margin-top: 10px;
+  display: inline-block;
+  color: rgb(12, 9, 9);
+  font-weight: 500;
+  text-decoration: none;
+  user-select: none;
+  padding: 0.3em 0.8em;
+  outline: none;
+  border: 1px solid;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #cbbeaf;
+}
+.btn:active {
+  background: #cbbeaf;
+}
+
