@@ -41,6 +41,7 @@ function CartPage(): JSX.Element {
 
   return (
     <div className={styles.cart}>
+
       <p className={styles.cartTiitle}>Корзина</p>
 
       {succsess ? (
@@ -65,9 +66,12 @@ function CartPage(): JSX.Element {
             </div>
               ) }
               <form onSubmit={handleSend}>
+
               <p>Оставьте контактные данные для оформления заказа</p>
                 <input
                   className={styles.input}
+                  required
+                  placeholder='+79995553322 whatsapp'
                   value={text}
                   onChange={handleTextInput}
                 />

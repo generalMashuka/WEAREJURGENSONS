@@ -28,6 +28,10 @@ import ItemPage from '../features/items/ItemPage/ItemPage';
 import CartPage from '../features/cart/cartPage/CartPage';
 import Search from '../features/items/Search/Search';
 import Footer from '../features/main/Footer/Footer';
+import ArticleView from '../features/articles/Article1View';
+import Article2View from '../features/articles/Article2View';
+import Article1View from '../features/articles/Article1View';
+import Article3View from '../features/articles/Article3View';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -56,6 +60,9 @@ function App(): JSX.Element {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/article1" element={<Article1View />} />
+        <Route path="/article2" element={<Article2View />} />
+        <Route path="/article3" element={<Article3View />} />
       </Routes>
       {/* < Footer /> */}
     
