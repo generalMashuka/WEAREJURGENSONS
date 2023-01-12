@@ -5,6 +5,8 @@ import { useAppDispatch } from "../../store";
 import React from "react";
 import { itemCreated } from "../items/itemsSlice";
 import { useNavigate } from "react-router-dom";
+import OrdersView from "../orders/order/OrdersView";
+
 import { useSelector } from "react-redux";
 import { selectUser } from "../auth/selectors";
 
@@ -194,6 +196,7 @@ function ProfilePage(): JSX.Element {
       <br />
       <div>
         <p className={styles.title}>Сформированные заказы</p>
+        <OrdersView/>
       </div>
     </div>
   );
