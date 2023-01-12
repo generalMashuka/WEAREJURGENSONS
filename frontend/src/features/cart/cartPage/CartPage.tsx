@@ -71,7 +71,8 @@ function CartPage(): JSX.Element {
                 <input
                   className={styles.input}
                   required
-                  placeholder='+79995553322 whatsapp'
+                  placeholder='+7999 000-00-00 Whatsapp'
+
                   value={text}
                   onChange={handleTextInput}
                 />

@@ -1,9 +1,10 @@
 import React, { memo, useState } from 'react';
 import styles from './styles.module.css';
-import heartPic from './img/HeartStraight.svg';
-import searchPic from './img/MagnifyingGlass.png';
-import cartPic from './img/catr.png';
-import userPic from './img/User.png';
+// import heartPic from './img/HeartStraight.svg';
+import searchPic from './img/LOOP.svg';
+import cartPic from './img/BAG.svg';
+import userPic from './img/HOUSE.svg';
+import logo from './img/LOGOJurgensons.svg';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -48,7 +49,7 @@ function NavBar(): JSX.Element {
     <div className={styles.mainContainer}>
       <nav className={styles.header}>
         <Link to="/" style={{ fontSize: '24px' }}>
-          Jurgensons
+          <img src={logo} alt="logo" />
         </Link>
 
         <div className={styles.buttoncontainer}>
@@ -61,7 +62,7 @@ function NavBar(): JSX.Element {
             )}
             
           </div>
-
+              
           {!statusSearch ? (
             <Link to="/items" onClick={handleSearchClick}>
               <img src={searchPic} alt="searchPic" />

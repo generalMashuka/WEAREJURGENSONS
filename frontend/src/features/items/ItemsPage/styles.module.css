@@ -6,6 +6,7 @@
   padding: 0 3.5%;
   justify-content: space-between;
   margin-bottom: 50px;
+  gap: 5%;
 }
 
 .sort {
@@ -30,7 +31,7 @@
   background: #cbbeaf;
 }
 .btnDelet:active {
-  background: #cbbeaf;
+  background: #e2dad2;
 }
 
 .input {
