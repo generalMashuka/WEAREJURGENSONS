@@ -8,15 +8,50 @@
   margin-left: 40px;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
 
-a:hover {
-  text-decoration: none;
-  color: black;
-}
+    /* background: #b4b9b5; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: auto;
+    padding-top: 25px;
+    margin-left: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+    
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  /* body {
+     background: linear-gradient(to right, #F6EFE7 59%, c 41%);
+     height: 118px;
+  } */
+
+  .mainContainer {
+
+    background: linear-gradient(to right, #F6EFE7 59%, #CBBEAF 41%);
+    height: 90px;
+    
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .buttoncontainer {
+    margin-left: auto;
+    margin-right: 43px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 28px;
+    margin-top: 7px;
+  }
+
 
 .buttoncontainer {
   margin-left: auto;
