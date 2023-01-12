@@ -41,6 +41,7 @@ export async function createItem (item: Item): Promise<Item> {
 }
 
 export async function updateItem (item: Item): Promise<void> {
+
   const response = await fetch(`/api/items/${item.id}`, {
     method: 'PUT',  
     body: JSON.stringify(item),
