@@ -16,14 +16,14 @@ function CartItemView({ cartItem }: CartItemViewProps): JSX.Element {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className={styles.card}>
       <img src={cartItem.item.img} className="card-img" alt="..." />
-      <div>
-        <p>{cartItem.item.name}</p>
+      <div className={styles.text}>
+        <p className={styles.textP}>{cartItem.item.name}</p>
         <p>
-          <strong>{cartItem.item.price}</strong>
+          <strong>{cartItem.item.price} ₽</strong>
         </p>
-        <div>
+        <div className={styles.btn}>
           <button onClick={() => dispatch(decrementQuantity(cartItem.item.id))}>
             -
           </button>
@@ -32,7 +32,11 @@ function CartItemView({ cartItem }: CartItemViewProps): JSX.Element {
             +
           </button>
         </div>
-        <button onClick={() => dispatch(removeItem(cartItem.item.id))}>
+
+        <button
+          className={styles.btnDelet}
+          onClick={() => dispatch(removeItem(cartItem.item.id))}
+        >
           Удалить
         </button>
       </div>

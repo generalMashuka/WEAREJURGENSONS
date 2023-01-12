@@ -1,69 +1,76 @@
 .name {
-display: flex;
-position:absolute;
-height: 10%;
-width: 100%;
-background: rgba(246, 239, 231, 0.8);
-bottom: 40px;
-gap: 3%;
+  padding: 2%;
+  padding-right: 3.5%;
+  display: flex;
+  position: absolute;
+  height: 12%;
+  width: 100%;
+  background: rgba(246, 239, 231, 0.8);
+  bottom: 0px;
+  gap: 32%;
+  align-items: baseline;
+}
+
+.price {
+  margin-right: auto;
 }
 
 .img {
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 100%;
 }
 
 .pic {
-margin-top: 40px;
-display: flex;
-position: relative;
-flex-direction: column;
-/* height: 340px; */
-width: 340px;
-overflow: hidden;
-background-color: rgb(165, 135, 135);
+  margin-top: 40px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 320px;
+  overflow: hidden;
+  background-color: rgb(165, 135, 135);
 }
 
 .text {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
 }
 
 .card {
-    margin: 2%;
-   
+  margin: 2%;
+}
+
+.cardItem {
+  margin: 2%;
 }
 
 .buyButton:hover {
-    background: #d7dbe3;
-  }
+  background: #d7dbe3;
+}
 
 .buyButton:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px #bbbcc0;
-  }
+  outline: none;
+  box-shadow: 0 0 0 4px #bbbcc0;
+}
 
 .buyButton {
-    margin-top: 5px;
-    height: 70%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-         appearance: none;
-    border: 0;
-    border-radius: 10%;
-    background: rgb(225, 215, 215);
-    color: rgb(84, 78, 78);
-    padding: 6px 14px;
-    font-size: 14px;
+  margin-top: 5px;
+  height: 70%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 10%;
+  background: rgb(225, 215, 215);
+  color: rgb(84, 78, 78);
+  padding: 6px 14px;
+  font-size: 14px;
 }
 
 .btnBox {
-  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
-  padding: 10px;
 }

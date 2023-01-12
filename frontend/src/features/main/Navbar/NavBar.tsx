@@ -64,8 +64,12 @@ function NavBar(): JSX.Element {
             </Link>
           ) : (
             <form onSubmit={handleSearchSubmit}>
-              <input value={text} onChange={handleSearchChange} />
-              <button type="submit">
+              <input
+                className={styles.input}
+                value={text}
+                onChange={handleSearchChange}
+              />
+              <button className={styles.btnDelet} type="submit">
                 <img src={searchPic} alt="searchPic" />
               </button>
             </form>
@@ -74,17 +78,16 @@ function NavBar(): JSX.Element {
             <img src={cartPic} alt="cartPic" />
           </Link>
 
-          { user && <Link to="/profile">
-            <img src={userPic} alt="userPic" />
-          </Link>
-          }
-          { user && (
-          <a href="#" role="button" tabIndex={0} onClick={handleLogout}>
-          Выйти
-        </a>
-          )
-          }
-
+          {user && (
+            <Link to="/profile">
+              <img src={userPic} alt="userPic" />
+            </Link>
+          )}
+          {user && (
+            <a href="#" role="button" tabIndex={0} onClick={handleLogout}>
+              Выйти
+            </a>
+          )}
         </div>
       </nav>
     </div>
