@@ -58,8 +58,11 @@ function CartPage(): JSX.Element {
                 <Total />
               </div>
               <form onSubmit={handleSend}>
+                <h4>Пожалуйста, введите ваши контактные данные для связи:</h4>
                 <input
                   className={styles.input}
+                  required
+                  placeholder='+79995553322 whatsapp'
                   value={text}
                   onChange={handleTextInput}
                 />
