@@ -1,8 +1,13 @@
 .card {
   display: flex;
   justify-content: baseline;
-  gap: 5%;
   margin-bottom: 2%;
+  background-color: #cbbeaf;
+  width: 30%;
+}
+
+.card img {
+  width: 50%;
 }
 
 .btn {
@@ -36,8 +41,17 @@
 .text {
   display: flex;
   flex-direction: column;
+  margin-left: 5%;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 1024px){
+  .card {
+    width: 49%;
+  }
 }
 
-.textP {
-  margin-top: 0;
+@media screen and (max-width: 425px){
+  .card {
+    width: 100%;
+  }
 }

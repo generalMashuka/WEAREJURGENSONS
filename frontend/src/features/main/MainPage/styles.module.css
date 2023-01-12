@@ -5,9 +5,6 @@
     /* margin-top: 50px; */
     /* margin-bottom: 102px; */
     padding-bottom: 102px;
-    
-   
-
 }
 
 video {
@@ -24,6 +21,7 @@ html {
 } */
 
 .main_container {
+    height: 200px;
     background-image: url('./img/net.svg');
      background-color:  white;
  /* background-image: url('./1642908254_19-abrakadabra-fun-p-setka-tetradi-v-kletku-29.png'); */

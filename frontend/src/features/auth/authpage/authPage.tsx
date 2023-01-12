@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { loginSuccess } from "../authSlice";
 import * as api from "../api";
 import { selectCreateError, selectUser } from "../selectors";
+import Footer from "../../main/Footer/Footer";
 
 function AuthPage(): JSX.Element {
   const user = useSelector(selectUser);
@@ -132,6 +133,7 @@ function AuthPage(): JSX.Element {
           </div>
         </form>
       )}
+      
     </div>
   );
 }

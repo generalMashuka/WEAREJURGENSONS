@@ -27,6 +27,7 @@ import SortedItems from '../features/items/SortedItems/SortedItems';
 import ItemPage from '../features/items/ItemPage/ItemPage';
 import CartPage from '../features/cart/cartPage/CartPage';
 import Search from '../features/items/Search/Search';
+import Footer from '../features/main/Footer/Footer';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -40,8 +41,10 @@ function App(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='wrapper'>
+     
       <NavBar />
+      
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/admin" element={<AuthPage />} />
@@ -54,6 +57,8 @@ function App(): JSX.Element {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/search" element={<Search />} />
       </Routes>
+      {/* < Footer /> */}
+    
     </div>
   );
 }

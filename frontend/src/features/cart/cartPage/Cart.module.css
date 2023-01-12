@@ -12,8 +12,8 @@ h3 {
 
 .items {
   display: flex;
-  gap: 10%;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .btnDelet {

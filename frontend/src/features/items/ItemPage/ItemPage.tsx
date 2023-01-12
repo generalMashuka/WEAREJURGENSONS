@@ -22,6 +22,7 @@ function ItemPage(): JSX.Element {
   };
 
   return (
+    
     <div className={styles.card}>
       <div className={styles.pic}>
         <img src={item!.img} className="card-img" alt="..." />
