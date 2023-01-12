@@ -1,5 +1,4 @@
 import React, { memo, useState } from 'react';
-// import './NavBar.css'
 import styles from './styles.module.css';
 import heartPic from './img/HeartStraight.svg';
 import searchPic from './img/MagnifyingGlass.png';
@@ -18,8 +17,6 @@ function NavBar(): JSX.Element {
 
   const navigate = useNavigate();
   const dispatchApp = useAppDispatch();
-  // const dispatch = useDispatch();
-  console.log(user);
 
   const [statusSearch, setStatusSearch] = useState(false);
   const [text, setText] = useState('');
@@ -44,7 +41,6 @@ function NavBar(): JSX.Element {
     event: React.FormEvent<HTMLFormElement>
   ): void => {
     setStatusSearch(false);
-    // navigate('/search', { state: text }); // todo понять как получить это значение
     navigate(`/search?q=${text}`);
   };
 
@@ -55,15 +51,13 @@ function NavBar(): JSX.Element {
           Jurgensons
         </Link>
 
-        <div className={styles.titlecontainer}>
-          {user && <div className={styles.link}>Привет, {user.name}</div>}
-          <Link className={styles.link} to="/about">
-            О нас
-          </Link>
-          <Link to="/items">Каталог</Link>
-          <Link to="/contacts">Контакты</Link>
-        </div>
         <div className={styles.buttoncontainer}>
+          <div className={styles.titlecontainer}>
+            {user && <div className={styles.link}>Привет, {user.name}</div>}
+            <Link to="/items">Каталог</Link>
+            <Link to="/contacts">Контакты</Link>
+          </div>
+
           {!statusSearch ? (
             <Link to="/items" onClick={handleSearchClick}>
               <img src={searchPic} alt="searchPic" />
@@ -76,9 +70,6 @@ function NavBar(): JSX.Element {
               </button>
             </form>
           )}
-          <a href="">
-            <img src={heartPic} alt="heartPic" />
-          </a>
           <Link to="/cart">
             <img src={cartPic} alt="cartPic" />
           </Link>
