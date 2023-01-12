@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../store';
 import Total from '../total/Total';
+import styles from './Cart.module.css';
 
 function CartPage(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -39,31 +40,43 @@ function CartPage(): JSX.Element {
   };
 
   return (
-    <div>
+    <div className={styles.cart}>
       <h3>Shopping Cart</h3>
 
       {succsess ? (
         <h4>Заказ оформлен. с Вами свяжется наш менеджер.</h4>
       ) : (
         <>
-          {cartItems?.map((item) => (
-            <CartItemView key={item.item.id} cartItem={item} />
-          ))}
+          <div className={styles.items}>
+            {cartItems?.map((item) => (
+              <CartItemView key={item.item.id} cartItem={item} />
+            ))}
+          </div>
           {order ? (
-            <div>
-              <form onSubmit={handleSend}>
-                <input value={text} onChange={handleTextInput} />
-                <button type="submit">Подтвердить оформление заказа</button>
-              </form>
-            </div>
-          ) : (
             <div>
               <div>
                 <Total />
               </div>
-
-              <div>
-                <button onClick={handleOrderButton}>Оформить заказ</button>
+              <form onSubmit={handleSend}>
+                <input
+                  className={styles.input}
+                  value={text}
+                  onChange={handleTextInput}
+                />
+                <button className={styles.btnDelet} type="submit">
+                  Подтвердить оформление заказа
+                </button>
+              </form>
+            </div>
+          ) : (
+            <div>
+              <div className={styles.btn}>
+                <div>
+                  <Total />
+                </div>
+                <button className={styles.btnDelet} onClick={handleOrderButton}>
+                  Оформить заказ
+                </button>
               </div>
             </div>
           )}

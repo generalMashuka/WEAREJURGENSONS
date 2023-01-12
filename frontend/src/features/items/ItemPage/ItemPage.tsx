@@ -24,22 +24,30 @@ function ItemPage(): JSX.Element {
   return (
     <div className={styles.card}>
       <div className={styles.pic}>
+        <img src={item!.img} className="card-img" alt="..." />
+      </div>
+      <div className={styles.productText}>
         <div className={styles.name}>
-          <h4>{item!.description}</h4>
-          <h5>{item!.name}</h5>
-          <p>{item!.price}</p>
+          <h4>{item!.name}</h4>
+          <p>{item!.price} рублей</p>
+          <br />
+          <p>{item!.description}</p>
+        </div>
+        <div>
           <button onClick={handleByeClick} className={styles.buyButton}>
             Купить
           </button>
+          <button onClick={() => navigate(-1)} className={styles.buyButton}>
+            Назад
+          </button>
         </div>
-        <img src={item!.img} className="card-img" alt="..." />
+
+        {text && (
+          <div>
+            <p>Товар добавлен в корзину</p>
+          </div>
+        )}
       </div>
-      <button onClick={() => navigate(-1)}>Назад</button>
-      {text && (
-        <div>
-          <p>Товар добавлен в корзину</p>
-        </div>
-      )}
     </div>
   );
 }

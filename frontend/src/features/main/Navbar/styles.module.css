@@ -91,5 +91,24 @@ color: #2f3030;
   margin-left: 40px;
 }
 
+.link {
+  white-space: nowrap;
+}
 
+.input {
+  margin-top: 10px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 1.5px solid #050504;
+  background: transparent;
+  outline: none;
+}
+
+.input:focus {
+  outline: none;
+}
+.btnDelet {
+  border: 0px solid;
+  background-color: transparent;
+}
 

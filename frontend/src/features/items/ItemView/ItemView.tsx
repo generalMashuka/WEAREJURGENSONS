@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import Item, { ItemId } from "../types/Item";
-import styles from "./styles.module.css";
-import { selectUser } from "../../auth/selectors";
-import React from "react";
-import { selectUpdateError } from "../selectors";
+import Item, { ItemId } from '../types/Item';
+import styles from './styles.module.css';
+import { selectUser } from '../../auth/selectors';
+import React from 'react';
+import { selectUpdateError } from '../selectors';
 
 type ItemProps = {
   item: Item;
@@ -19,7 +19,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
   //   navigate(`/items/${item.id}`);
   // };
   const user = useSelector(selectUser);
-  const updateError = useSelector(selectUpdateError)
+  const updateError = useSelector(selectUpdateError);
 
   const [edit, setEdit] = React.useState(false);
 
@@ -110,7 +110,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Цена товара
               </label>
               <input
-              required
+                required
                 type="number"
                 className={styles.input}
                 id="price-input"
@@ -124,7 +124,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Описание товара
               </label>
               <input
-              required
+                required
                 type="text"
                 className={styles.input}
                 id="description-input"
@@ -138,7 +138,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 Изображение
               </label>
               <input
-              required
+                required
                 type="text"
                 className={styles.input}
                 id="img-input"
@@ -162,12 +162,13 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
         ) : (
           <>
             <div className={styles.name}>
-              <Link to={`/items/${item.id}`} style={{ fontSize: "24px" }}>
-                {/* {item.description} */}
+              <Link to={`/items/${item.id}`} style={{ fontSize: '24px' }}>
                 {item.name}
               </Link>
+              <div className={styles.price}>
+                <p>{item.price} рублей</p>
+              </div>
             </div>
-            <p>{item.price}</p>
             <img src={item.img} className={styles.img} alt="..." />
           </>
         )}
@@ -179,12 +180,11 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
           )}
           {user && (
             <button onClick={handleEditClick}>
-              {edit ? "Изменить товар" : "Редактировать"}
+              {edit ? 'Изменить товар' : 'Редактировать'}
             </button>
           )}
         </div>
       </div>
-
     </div>
   );
 }
