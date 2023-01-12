@@ -172,7 +172,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
           )}
           {user && (
             <button onClick={handleEditClick}>
-              {edit ? "Изменить товар" : "Редактировать"}
+              {edit ? "Изменить товар" : "Изменить статус"}
             </button>
           )}
         </div>

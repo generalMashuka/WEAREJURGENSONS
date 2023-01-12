@@ -1,40 +1,54 @@
 import { useSelector } from "react-redux";
 import { selectOrders, selectLoaderror } from "../selectors";
 import styles from "./orders.module.css";
-import * as api from '../api';
-import Order, { OrderId  } from "../types/Order";
+import * as api from "../api";
+import Order, { OrderId } from "../types/Order";
 import { loadOrders, orderDeleted, orderUpdated } from "../ordersSlice";
 import { useAppDispatch } from "../../../store";
 import { useEffect } from "react";
+import OrderView from "./orderview/OrderView";
 
 function OrdersView(): JSX.Element {
   const orders = useSelector(selectOrders);
-  const orderItemsArray = orders.orderItems
+  // const orders = ordersObj.orders;
   const loadError = useSelector(selectLoaderror);
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
-  useEffect(()=> {
-    dispatch(loadOrders())
-  },[dispatch])
+  console.log(orders);
+  
 
-  console.log(orderItemsArray);
-  return (    
+  useEffect(() => {
+    dispatch(loadOrders());
+  }, [dispatch]);
+
+  const handleOrderRemove = (id: OrderId): void => {
+    dispatch(orderDeleted(id));
+  };
+  const handleOrderUpdate = (order: Order): void => {
+    dispatch(orderUpdated(order));
+  };
+
+  return (
     <div>
-        <table>
-          <caption>Заказы</caption>
-          <tr>
+      <table>
+        <caption>Заказы</caption>
+        <tr>
           <th>Номер заказа</th>
-          <th>Товары</th>
+          <th>Товары и их количество</th>
           <th>Контактные данные покупателя</th>
           <th>Статус заказа</th>
           <th>Дата оформления заказа</th>
-          </tr>
-          
-          {orderItemsArray?.map((orderItem) => (<tr><td>{orderItem.Order.id}</td>
-          <td>{orderItem.Item.name}</td><td>{orderItem.Order.contact}</td><td>{orderItem.Order.status}</td><td>{orderItem.Order.createdAt}</td>
-          </tr>))}
-          
-          </table>
+        </tr>
+        <tr>
+        {orders?.map((order) => (
+          <OrderView
+            order={order}
+            onRemove={handleOrderRemove}
+            onUpdate={handleOrderUpdate}
+          />
+        ))}
+        </tr>
+      </table>
     </div>
   );
 }

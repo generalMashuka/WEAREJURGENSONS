@@ -1,10 +1,12 @@
-import OrderItem from './OrderItem'
-type Order = OrderItem & {
+import { OrderItem } from "./OrderItem";
+
+type Order = {
   id: number;
   status:string;
   contact:string;
-  createdAt: Date;
-  updatedAt:Date;
+  createdAt: string;
+  updatedAt:string;
+  OrderItems: OrderItem[];
 }
 
 export type OrderId = Order['id']

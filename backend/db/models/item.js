@@ -1,4 +1,3 @@
-'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Item extends Model {
@@ -9,13 +8,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Category, OrderItem , Order}) {
       Item.belongsTo(Category, { foreignKey: 'category_id' });
-      // Item.hasMany(OrderItem, { foreignKey: 'item_id' });
-      Item.Orders = Item.belongsToMany(Order, {
-        through: OrderItem,
-        foreignKey: 'item_id',
-        otherKey: 'order_id',
-        as: 'ordered',
-      })
+      Item.OrderItems = Item.hasMany(OrderItem, { foreignKey: 'item_id' });
+      // Item.Orders = Item.belongsToMany(Order, {
+      //   through: OrderItem,
+      //   foreignKey: 'item_id',
+      //   otherKey: 'order_id',
+      //   as: 'ordered',
+      // })
     }
   }
   Item.init(

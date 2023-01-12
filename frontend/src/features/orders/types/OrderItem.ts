@@ -1,11 +1,9 @@
-type OrderItem = {
-  id:number;
-  order_id: number;
-  item_id: number;
-  quantity:number;
-  createdAt:Date;
-  updateAt:Date;
+import Item, { ItemId } from "../../items/types/Item";
 
+export type OrderItem = {
+  quantity: number;
+  order_id: number;
+  item_id:number;
+  Item: Item;
 }
 
-export default OrderItem;

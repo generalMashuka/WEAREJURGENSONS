@@ -1,6 +1,6 @@
 const ordersRouter = require('express').Router();
 
-const { Order, OrderItem, Item } = require('../db/models');
+const { Order, OrderItem } = require('../db/models');
 
 ordersRouter.get('/', async (req, res) => {
   try {
@@ -25,20 +25,20 @@ ordersRouter.get('/', async (req, res) => {
     //   }],
     //   raw:true,
     // });
-    const orderItems = await OrderItem.findAll({
+    const orders = await Order.findAll({
       order: [
         ['createdAt', 'DESC'],
         ['id', 'DESC'],
       ],
-      include: {
-        all: true,
-        nested: true
-      },
+      include: [{
+        association: Order.OrderItems,
+        include: OrderItem.Item,
+      }],
       // raw: true,
     });
 
-    console.log(orderItems);
-    res.json({ orderItems })
+    console.log(orders);
+    res.json(orders)
   } catch (error) {
     console.error(error)
     res.status(501).json({ error: 'ошибка БД при загрузке заказов на странцу' })
@@ -49,18 +49,21 @@ ordersRouter.get('/', async (req, res) => {
 ordersRouter.delete('/:id', async (req, res) => {
   try {
     // удаляем задачу с заданным id
+    const { id } = req.params
     const removedCount = await Order.destroy({
       where: {
         // в req.params.id ляжет соответсвующая часть URL
-        id: Number(req.params.id),
+        id: Number(id),
       },
+
     });
+
 
     if (removedCount === 0) {
       res.status(404).json({ success: false, message: 'Нет такого заказа' });
     } else {
-      res.json({ success: true });
-      // res.json(req.params.id)
+      // res.json({ success: true });
+      res.json(Number(id))
     }
   } catch (error) {
     console.error(error)

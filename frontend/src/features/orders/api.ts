@@ -17,6 +17,8 @@ export async function deleteOrder (id: OrderId): Promise<number> {
     method: 'DELETE'
   });
   const result = await response.json();
+  console.log("result:", result, "response:", response);
+  
   if (response.ok) {
     return result;
   } else {

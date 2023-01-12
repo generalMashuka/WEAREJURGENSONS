@@ -18,10 +18,10 @@ export const loadOrders = createAsyncThunk("orders/loadOrders", async () => {
 });
 
 export const orderDeleted = createAsyncThunk(
-  "items/itemDeleted",
+  "orders/orderDeleted",
   async (id: OrderId) => {
-    await api.deleteOrder(id);
-    return id;
+    const deletedItemId = await api.deleteOrder(id);    
+    return deletedItemId;
   }
 );
 
