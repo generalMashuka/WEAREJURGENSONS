@@ -41,7 +41,7 @@ function CartPage(): JSX.Element {
 
   return (
     <div className={styles.cart}>
-      <p className={styles.cart}>Shopping Cart</p>
+      <p className={styles.cart}>Корзина</p>
 
       {succsess ? (
         <h4>Заказ оформлен. с Вами свяжется наш менеджер.</h4>

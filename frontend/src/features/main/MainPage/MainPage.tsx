@@ -1,4 +1,4 @@
-import ArticleView from '../../articles/ArticleView';
+import ArticleView from '../../articles/Article3View';
 import AboutUsView from './AboutUs/AboutUsView';
 import CategoriesPage from '../../categories/CategoriesPage/CategoriesPage';
 import styles from './styles.module.css';
@@ -55,14 +55,14 @@ function MainPage(): JSX.Element {
         <AboutUsView />
 
         {/* новости */}
-        <p className={styles.title}>Новости</p>
+        <p className={styles.title}>Наши статьи</p>
         <div className={styles.newsContainer}>
           <div className={styles.leftPart}>
             <a href="">
               <div className={styles.newsCard1}>
                 <img src={news1} className={styles.newsImg} alt="news-foto" />
                 <div className={styles.name}>
-                  <p className={styles.text}>Название статьи</p>
+                <Link to="/article1" className={styles.text}>Немного о фурошиках</Link>
                 </div>
               </div>
             </a>
@@ -70,7 +70,7 @@ function MainPage(): JSX.Element {
               <div className={styles.newsCard2}>
                 <img src={news2} className={styles.newsImg} alt="news-foto" />
                 <div className={styles.name}>
-                  <p className={styles.text}>Название статьи</p>
+                <Link to="/article2" className={styles.text}>Немного о рецептах</Link>
                 </div>
               </div>
             </a>
@@ -81,7 +81,7 @@ function MainPage(): JSX.Element {
               <div className={styles.newsCard3}>
                 <img src={news3} className={styles.newsImg} alt="news-foto" />
                 <div className={styles.name}>
-                  <p className={styles.text}>Название статьи</p>
+                <Link to="/article3" className={styles.text}>Немного о керамике</Link>
                 </div>
               </div>
             </a>
