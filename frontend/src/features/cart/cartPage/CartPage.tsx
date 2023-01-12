@@ -68,6 +68,8 @@ function CartPage(): JSX.Element {
               <p>Оставьте контактные данные для оформления заказа</p>
                 <input
                   className={styles.input}
+                  required
+                  placeholder='+7999 000-00-00 Whatsapp'
                   value={text}
                   onChange={handleTextInput}
                 />

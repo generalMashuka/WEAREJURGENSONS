@@ -13,10 +13,9 @@
     flex-direction: row;
     flex-wrap: nowrap;
     margin: auto;
-    padding-top: 25px;
+    padding-top: 10px;
     margin-left: 40px;
     align-items: center;
-    justify-content: center;
   } 
     
   a {
@@ -55,11 +54,10 @@
 .buttoncontainer {
   margin-left: auto;
   margin-right: 43px;
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 28px;
-  margin-top: 7px;
+  align-items: center;
 }
 
 .link {
@@ -128,6 +126,7 @@
   display: inline-block;
   border: 0;
   border-bottom: 1.5px solid #050504;
+  margin-bottom: 10%;
   background: transparent;
   outline: none;
 }
@@ -138,6 +137,7 @@
 .btnDelet {
   border: 0px solid;
   background-color: transparent;
-
 }
-
+ /* .icons {
+  padding-bottom: ;
+ } */

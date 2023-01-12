@@ -167,7 +167,7 @@ function ItemView({ item, onRemove, onUpdate }: ItemProps): JSX.Element {
                 {item.name}
               </Link>
               <div className={styles.price}>
-                <p>{item.price} рублей</p>
+                <p>{item.price} р.</p>
               </div>
             </div>
           </>
