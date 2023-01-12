@@ -25,7 +25,7 @@ export async function deleteItem (id: ItemId): Promise<number> {
 }
 
 export async function createItem (item: Item): Promise<Item> {
-  const response = await fetch ('api/items', {
+  const response = await fetch ('/api/items', {
     method: 'POST',
     body: JSON.stringify(item),
     headers: {
@@ -42,7 +42,7 @@ export async function createItem (item: Item): Promise<Item> {
 }
 
 export async function updateItem (item: Item): Promise<void> {
-  await fetch(`api/items/${item.id}`, {
+  await fetch(`/api/items/${item.id}`, {
     method: 'PUT',  
     body: JSON.stringify(item),
     headers: {

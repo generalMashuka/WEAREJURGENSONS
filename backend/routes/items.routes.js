@@ -75,11 +75,11 @@ itemsRouter.put('/:id', async( req, res ) => {
       res.status(404).json({success: false, message: 'Нет такой задачи'});
       return;
      }     
-     item.name = name,
-     item.price = price,
-     item.img = img,
-     item.description = description,
-     item.category_id = category_id
+     item.name = name;
+     item.price = price;
+     item.img = img;
+     item.description = description;
+     item.category_id = category_id;
      item.save();
      res.json({ success: true})
   } catch (error) {
