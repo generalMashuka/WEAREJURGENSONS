@@ -61,6 +61,7 @@ function CartPage(): JSX.Element {
               <div>
                 <Total />
               </div>
+
               <div>
                 <button onClick={handleOrderButton}>Оформить заказ</button>
               </div>

@@ -1,46 +1,44 @@
 .header {
-    /* background: #b4b9b5; */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin: auto;
-    margin-top: 39px;
-    margin-left: 40px;
-    
-  }
-    
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  a:hover {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .buttoncontainer {
-    margin-left: auto;
-    margin-right: 43px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 28px;
-  }
+  /* background: #b4b9b5; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: auto;
+  margin-top: 39px;
+  margin-left: 40px;
+}
 
-  .titlecontainer {
-      margin-left: 395px;
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      font-size: 18px;
-  }
+a {
+  text-decoration: none;
+  color: black;
+}
 
-  .mainlogo {
-    margin-left: 40px;
-  }
+a:hover {
+  text-decoration: none;
+  color: black;
+}
 
+.buttoncontainer {
+  margin-left: auto;
+  margin-right: 43px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 7px;
+}
 
-  .link {
-white-space: nowrap;
+.titlecontainer {
+  font-size: 18px;
+  display: flex;
+  margin-top: 4px;
+  gap: 28px;
+}
+
+.mainlogo {
+  margin-left: 40px;
+}
+
+.link {
+  white-space: nowrap;
 }
