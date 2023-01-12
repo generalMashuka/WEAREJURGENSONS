@@ -29,7 +29,7 @@ function ItemPage(): JSX.Element {
       </div>
       <div className={styles.productText}>
         <div className={styles.name}>
-          <h4>{item!.name}</h4>
+          <h5>{item!.name}</h5>
           <p>{item!.price} рублей</p>
           <br />
           <p>{item!.description}</p>

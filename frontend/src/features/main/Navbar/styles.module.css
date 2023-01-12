@@ -1,15 +1,14 @@
 .header {
-  /* background: #b4b9b5; */
+  /* background: #b4b9b5;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   margin: auto;
   margin-top: 39px;
   margin-left: 40px;
-}
+} */
+   
 
-
-    /* background: #b4b9b5; */
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -18,7 +17,7 @@
     margin-left: 40px;
     align-items: center;
     justify-content: center;
-  }
+  } 
     
   a {
     text-decoration: none;
@@ -139,4 +138,6 @@
 .btnDelet {
   border: 0px solid;
   background-color: transparent;
+
 }
+

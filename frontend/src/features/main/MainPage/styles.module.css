@@ -1,10 +1,11 @@
 .video_container {
     display: flex;
     justify-content: center;
-    background: linear-gradient(to right, #F6EFE7 59%, #CBBEAF 41%);
+    margin-top: 30px;
+    /* background: linear-gradient(to right, #F6EFE7 59%, #CBBEAF 41%); */
     /* margin-top: 50px; */
     /* margin-bottom: 102px; */
-    padding-bottom: 102px;
+    /* padding-bottom: 50px; */
 }
 
 video {
@@ -64,7 +65,7 @@ flex-direction: column;
     display: flex;
     flex-direction: row;
     margin-top: 32px;
-    padding-bottom: 123px;
+    padding-bottom: 55px;
 }
 
 .leftPart {}
@@ -121,8 +122,8 @@ font-size: 29px;
 .upButton {
 display: flex;
 justify-content: center;
-scale: 90%;
-
+font-size: 25px;
+margin-bottom: 30px;
 }
 
 

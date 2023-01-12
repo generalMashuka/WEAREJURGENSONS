@@ -18,9 +18,10 @@ return items.filter((i) => i.category_id === Number(id));
 
   return (
     <div>
-      <div>
-        <div>
-          <button onClick={() => navigate('/items')}>Все товары</button></div>
+              <div className={styles.btnBox}>
+          <button className={styles.btn} onClick={() => navigate('/items')}>Все товары</button></div>
+      <div className={styles.cards}>
+
         {loadError ? (
           <b>{loadError}</b>
         ) : (
