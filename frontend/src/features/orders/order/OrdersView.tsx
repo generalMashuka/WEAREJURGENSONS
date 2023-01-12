@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 function OrdersView(): JSX.Element {
   const orders = useSelector(selectOrders);
-  const ordersArray = orders.orderItems
+  const orderItemsArray = orders.orderItems
   const loadError = useSelector(selectLoaderror);
   const dispatch = useAppDispatch()
 
@@ -17,7 +17,7 @@ function OrdersView(): JSX.Element {
     dispatch(loadOrders())
   },[dispatch])
 
-  console.log(ordersArray);
+  console.log(orderItemsArray);
   return (    
     <div>
         <table>
@@ -25,13 +25,14 @@ function OrdersView(): JSX.Element {
           <tr>
           <th>Номер заказа</th>
           <th>Товары</th>
-          <th>Количество</th>
           <th>Контактные данные покупателя</th>
           <th>Статус заказа</th>
           <th>Дата оформления заказа</th>
           </tr>
           
-          {ordersArray?.map((order) => (<tr><td>{order.order_id}</td><td>{order["Item.name"]}</td><td>{order["Order.contact"]}</td><td>{order["Order.status"]}</td><td>{order["Order.createdAt"]}</td></tr>))}
+          {orderItemsArray?.map((orderItem) => (<tr><td>{orderItem.Order.id}</td>
+          <td>{orderItem.Item.name}</td><td>{orderItem.Order.contact}</td><td>{orderItem.Order.status}</td><td>{orderItem.Order.createdAt}</td>
+          </tr>))}
           
           </table>
     </div>
