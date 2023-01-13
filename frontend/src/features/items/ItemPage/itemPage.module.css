@@ -6,6 +6,12 @@
   flex-direction: column;
 }
 
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-weight:500;
+  font-size:medium;
+}
+
 .pic {
   display: flex;
   position: relative;
@@ -59,4 +65,8 @@
 .linkBack {
   display: flex;
   justify-content: space-around;
+}
+
+.card-img {
+  max-width: 20%;
 }
