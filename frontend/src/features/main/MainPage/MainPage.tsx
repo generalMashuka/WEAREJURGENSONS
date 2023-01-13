@@ -6,8 +6,8 @@ import starButton from './img/star_button.svg';
 import news1 from './img/news1.svg';
 import news2 from './img/news2.svg';
 import news3 from './img/news3.svg';
-import ARRAYUP from './img/ARRAYUP.svg'
-import upButton from './img/up.png'
+import ARRAYUP from './img/ARRAYUP.svg';
+import upButton from './img/up.png';
 
 import videoPic from './img/IMG_7272 1 1.svg'; // пока растянутое видео не готово - img заглушка
 import { Link } from 'react-router-dom';
@@ -21,9 +21,9 @@ function MainPage(): JSX.Element {
         <div className={styles.video_container}>
           {/* <img src={videoPic} alt="video" /> */}
           <video autoPlay loop muted>
-        <source src={require('./img/IMG_9113.webm')} type="video/webm" />
-        Your browser does not support the video tag.
-      </video>
+            <source src={require('./img/IMG_9113.webm')} type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
       {/* блок - основной страницы */}
@@ -33,16 +33,16 @@ function MainPage(): JSX.Element {
           {' '}
           {/* может быть потом вынести блок в отдельную view */}
           <div className={styles.starButton}>
-            <a href="/contacts">
+            <Link to="/contacts">
               <img className={styles.starImg} src={starButton} alt="" />
               <p className={styles.btn_text}>контакты</p>
-            </a>
+            </Link>
           </div>
           <div className={styles.starButton}>
-            <a href="#">
+            <Link to="/contacts">
               <img className={styles.starImg} src={starButton} alt="" />
               <p className={styles.btn_text}>условия доставки</p>
-            </a>
+            </Link>
           </div>
           <div className={styles.starButton}>
             <a href="/cart">
@@ -62,7 +62,9 @@ function MainPage(): JSX.Element {
               <div className={styles.newsCard1}>
                 <img src={news1} className={styles.newsImg} alt="news-foto" />
                 <div className={styles.name}>
-                <Link to="/article1" className={styles.text}>Немного о фурошиках</Link>
+                  <Link to="/article1" className={styles.text}>
+                    Немного о фурошиках
+                  </Link>
                 </div>
               </div>
             </a>
@@ -70,7 +72,9 @@ function MainPage(): JSX.Element {
               <div className={styles.newsCard2}>
                 <img src={news2} className={styles.newsImg} alt="news-foto" />
                 <div className={styles.name}>
-                <Link to="/article2" className={styles.text}>Немного о рецептах</Link>
+                  <Link to="/article2" className={styles.text}>
+                    Немного о рецептах
+                  </Link>
                 </div>
               </div>
             </a>
@@ -81,20 +85,21 @@ function MainPage(): JSX.Element {
               <div className={styles.newsCard3}>
                 <img src={news3} className={styles.newsImg} alt="news-foto" />
                 <div className={styles.name}>
-                <Link to="/article3" className={styles.text}>Немного о керамике</Link>
+                  <Link to="/article3" className={styles.text}>
+                    Немного о керамике
+                  </Link>
                 </div>
               </div>
             </a>
           </div>
         </div>
-       
+
         <div className={styles.upButton}>
-            <a href="#links">
-              <img src={ARRAYUP} alt="array up" />
-            </a>
-          </div>
+          <a href="#links">
+            <img src={ARRAYUP} alt="array up" />
+          </a>
+        </div>
       </div>
-    
     </div>
   );
 }

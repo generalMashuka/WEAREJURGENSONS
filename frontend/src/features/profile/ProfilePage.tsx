@@ -166,10 +166,10 @@ function ProfilePage(): JSX.Element {
                   Выберите категорию товара
                 </label>
                 <select className={styles.input} onChange={handleCategory_id}>
-                  <option value="1">Категория 1</option>
-                  <option value="2">Категория 2</option>
-                  <option value="3">Категория 3</option>
-                  <option value="4">Категория 4</option>
+                  <option value="1">Изделия из дерева</option>
+                  <option value="2">Ковры</option>
+                  <option value="3">Керамика</option>
+                  <option value="4">Текстиль</option>
                 </select>
               </div>
               <div className={styles.inputBox}>
@@ -194,7 +194,7 @@ function ProfilePage(): JSX.Element {
         </div>
       </div>
       <br />
-      <div>
+      <div className={styles.correctItemsBox}>
         <p className={styles.title}>Сформированные заказы</p>
         <OrdersView/>
       </div>

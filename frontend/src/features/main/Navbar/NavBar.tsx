@@ -55,15 +55,18 @@ function NavBar(): JSX.Element {
 
         <div className={styles.buttoncontainer}>
           <div className={styles.titlecontainer}>
+
             {/* {user && <div>Привет, {user.name}</div>} */}
             <Link className={styles.link} to="/items">Каталог</Link>
 
-            { !user && (
-              <Link className={styles.link} to="/contacts">Контакты</Link>
+
+            {!user && (
+              <Link className={styles.link} to="/contacts">
+                Доставка
+              </Link>
             )}
-            
           </div>
-              
+
           {!statusSearch ? (
             <Link to="/items" onClick={handleSearchClick}>
               <img src={searchPic} alt="searchPic" />
@@ -81,12 +84,11 @@ function NavBar(): JSX.Element {
             </form>
           )}
 
-          { !user && (
-          <Link to="/cart">
-          <img src={cartPic} alt="cartPic" />
-        </Link>
+          {!user && (
+            <Link to="/cart">
+              <img src={cartPic} alt="cartPic" />
+            </Link>
           )}
-
 
           {user && (
             <Link to="/profile">

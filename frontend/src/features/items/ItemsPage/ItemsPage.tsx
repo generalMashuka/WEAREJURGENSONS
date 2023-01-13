@@ -85,10 +85,10 @@ function ItemsPage(): JSX.Element {
           Сбросить фильтры
         </button>{' '}
         <select className={styles.input} onChange={handleSortedCategory}>
-          <option value="1">Категория 1</option>
-          <option value="2">Категория 2</option>
-          <option value="3">Категория 3</option>
-          <option value="4">Категория 4</option>
+          <option value="1">Изделия из дерева</option>
+          <option value="2">Ковры</option>
+          <option value="3">Керамика</option>
+          <option value="4">Текстиль</option>
         </select>
       </div>
 
