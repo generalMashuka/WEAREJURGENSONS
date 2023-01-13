@@ -45,10 +45,9 @@ function App(): JSX.Element {
   }, [dispatch]);
 
   return (
-    <div className='wrapper'>
-     
+    <div className="wrapper">
       <NavBar />
-      
+
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/admin" element={<AuthPage />} />
@@ -64,8 +63,7 @@ function App(): JSX.Element {
         <Route path="/article2" element={<Article2View />} />
         <Route path="/article3" element={<Article3View />} />
       </Routes>
-      {/* < Footer /> */}
-    
+      <Footer />
     </div>
   );
 }
