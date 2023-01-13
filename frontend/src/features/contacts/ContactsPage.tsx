@@ -2,8 +2,12 @@ import styles from "./styles.module.css";
 import balconTable from "./IMG_0194.jpg"
 import sink from "./IMG_0148.jpg"
 import kitchenTable from "./IMG_0150.jpg"
+import { Link, useNavigate } from "react-router-dom";
+
+import ARRAYBACK from './ARRAYBACK.svg'
 
 function ContactsPage(): JSX.Element {
+  const navigate = useNavigate()
   return (
     <div className={styles.contact}>
       <div>
@@ -44,6 +48,11 @@ function ContactsPage(): JSX.Element {
           <img className={styles.img} src={kitchenTable} alt="kitchenTable" />
         </div>
       </div>
+      <div className={styles.linkBack}>
+        <Link to="#" onFocus={() => navigate(-1)}>
+            <img src={ARRAYBACK} alt="array back" />
+          </Link>
+          </div>
     </div>
   );
 }
