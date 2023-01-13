@@ -27,3 +27,8 @@
 .contactInfo {
   min-width: 30%;
 }
+.linkBack {
+  margin:7%;
+  display: flex;
+  justify-content: space-around;
+}
