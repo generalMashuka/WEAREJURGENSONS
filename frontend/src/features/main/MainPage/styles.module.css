@@ -82,19 +82,17 @@ html {
 }
 
 .newsCard1 {
-  height: 388px;
+  height: 360px;
 }
 
 .newsCard2 {
-  height: 434px;
+  height: 400px;
 }
 
 .newsCard3 {
-  height: 822px;
 }
 
 .newsImg {
-  margin: auto;
   width: 100%;
 }
 
