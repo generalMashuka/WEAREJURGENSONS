@@ -31,6 +31,7 @@ return items.filter((i) => i.category_id === Number(id));
           />)
         )}
       </div>
+
     </div>
   );
 }

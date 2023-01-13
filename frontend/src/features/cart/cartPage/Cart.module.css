@@ -47,6 +47,10 @@ h3 {
 .btnDelet:active {
   background: #cbbeaf;
 }
+.linkBack {
+  display: flex;
+  justify-content: space-around;
+}
 
 .input {
   margin-top: 10px;

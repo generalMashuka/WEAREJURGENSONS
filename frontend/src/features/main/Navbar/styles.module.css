@@ -65,6 +65,10 @@
   color: #2f3030;
 }
 
+.logo {
+  margin-top: 20px;
+}
+
 .link:hover {
   color: black;
 }
