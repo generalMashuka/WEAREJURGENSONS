@@ -15,7 +15,6 @@ function OrdersView(): JSX.Element {
   const dispatch = useAppDispatch();
 
   console.log(orders);
-  
 
   useEffect(() => {
     dispatch(loadOrders());
@@ -30,25 +29,25 @@ function OrdersView(): JSX.Element {
 
   return (
     <div>
-      <table>
-        <caption>Заказы</caption>
-        <tr>
-          <th>Номер заказа</th>
-          <th>Товары и их количество</th>
-          <th>Контактные данные покупателя</th>
-          <th>Статус заказа</th>
-          <th>Дата оформления заказа</th>
-        </tr>
-        <tr>
-        {orders?.map((order) => (
-          <OrderView
-            order={order}
-            onRemove={handleOrderRemove}
-            onUpdate={handleOrderUpdate}
-          />
-        ))}
-        </tr>
-      </table>
+      <div>
+        {/* <caption>Заказы</caption> */}
+        {/* <div>
+          <div className={styles.text}>Номер заказа</div>
+          <div>Товары и их количество</div>
+          <div>Контактные данные покупателя</div>
+          <div>Статус заказа</div>
+          <div>Дата оформления заказа</div>
+        </div> */}
+        <div className={styles.right}>
+          {orders?.map((order) => (
+            <OrderView
+              order={order}
+              onRemove={handleOrderRemove}
+              onUpdate={handleOrderUpdate}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

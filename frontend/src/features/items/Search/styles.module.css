@@ -2,9 +2,11 @@
 .cards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .linkBack {
+    margin-top: 30px;
     display: flex;
     justify-content: space-around;
   }
