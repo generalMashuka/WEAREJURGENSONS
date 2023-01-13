@@ -20,6 +20,7 @@ import {
 // import searchSlice from './features/items/searchSlice';
 
 const persistConfig = {
+  timeout: 10,
   key: 'root',
   storage,
   whitelist: ['cart'],
