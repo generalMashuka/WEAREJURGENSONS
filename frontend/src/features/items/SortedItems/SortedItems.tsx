@@ -17,7 +17,7 @@ return items.filter((i) => i.category_id === Number(id));
 }, [id, items])
 
   return (
-    <div>
+    <div className={styles.mainBox}>
               <div className={styles.btnBox}>
           <button className={styles.btn} onClick={() => navigate('/items')}>Все товары</button></div>
       <div className={styles.cards}>
@@ -31,6 +31,7 @@ return items.filter((i) => i.category_id === Number(id));
           />)
         )}
       </div>
+      <div className={styles.empty}></div>
 
     </div>
   );
