@@ -122,6 +122,9 @@
 
 .link {
   white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:500;
+  font-size:larger;
 }
 
 .input {
@@ -129,7 +132,6 @@
   display: inline-block;
   border: 0;
   border-bottom: 1.5px solid #050504;
-  margin-bottom: 10%;
   background: transparent;
   outline: none;
 }
@@ -148,5 +150,5 @@
  * {
   font-family: 'Montserrat', sans-serif;
   font-weight:500;
-  font-size:medium;
+  font-size:larger;
 }
