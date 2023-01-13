@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import searchPic from './img/LOOP.svg';
 import cartPic from './img/BAG.svg';
 import userPic from './img/HOUSE.svg';
+import exitPic from './img/EXITARROW.svg';
 import logo from './img/LOGOJurgensons.svg';
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -54,10 +55,10 @@ function NavBar(): JSX.Element {
 
         <div className={styles.buttoncontainer}>
           <div className={styles.titlecontainer}>
-            {user && <div>Привет, {user.name}</div>}
-            <Link className={styles.link} to="/items">
-              Каталог
-            </Link>
+
+            {/* {user && <div>Привет, {user.name}</div>} */}
+            <Link className={styles.link} to="/items">Каталог</Link>
+
 
             {!user && (
               <Link className={styles.link} to="/contacts">
@@ -96,7 +97,7 @@ function NavBar(): JSX.Element {
           )}
           {user && (
             <a href="#" role="button" tabIndex={0} onClick={handleLogout}>
-              Выйти
+              <img src={exitPic} alt="exit icon" />
             </a>
           )}
         </div>
