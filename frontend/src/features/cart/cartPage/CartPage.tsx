@@ -14,6 +14,10 @@ import Total from '../total/Total';
 import styles from './Cart.module.css';
 import ARRAYBACK from './ARRAYBACK.svg'
 
+import done from './done.jpg'
+import star from './star_button.svg'
+
+
 function CartPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const cartItems = useSelector(selectCartItems);
@@ -46,7 +50,15 @@ function CartPage(): JSX.Element {
       <p className={styles.cartTiitle}>Корзина</p>
 
       {succsess ? (
-        <p className={styles.cartText}>Заказ оформлен. с Вами свяжется наш менеджер.</p>
+        <div className={styles.alertBox}>
+           <p className={styles.cartText}>Заказ оформлен! C Вами свяжется наш менеджер.</p>
+           <div>
+           <img className={styles.img} src={done} alt="" />
+           </div>
+           <img className={styles.star} src={star} alt="" />
+           
+        </div>
+        
       ) : (
         <>
           <div className={styles.items}>
