@@ -72,13 +72,14 @@
 
 .btnBox {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  margin: 5%;
   justify-content: center;
   gap: 10px;
 }
 
 .btnBox button{
-  margin: 20px 0;
+  margin: 1%;
 }
 
 

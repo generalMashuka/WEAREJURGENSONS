@@ -13,11 +13,13 @@ function CategoriesPage(): JSX.Element {
     <div>
       <div className={styles.maincontainer}>
         <img className={styles.star_button} src={starButton} alt="star" />
+        <div className={styles.categoriesContainer}>
         {categories.map((category) => (
-          <Link  to={`/categories/${category.id}`}>
+          <Link to={`/categories/${category.id}`}>
             <CategoryView key={category.id} category={category} />
           </Link >
         ))}
+        </div>
       </div>
     </div>
   );
