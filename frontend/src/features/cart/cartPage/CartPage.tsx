@@ -8,10 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems } from '../../items/selectors';
 import CartItemView from '../cartItem/CartItemView';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../store';
 import Total from '../total/Total';
 import styles from './Cart.module.css';
+import ARRAYBACK from './ARRAYBACK.svg'
+
 import done from './done.jpg'
 import star from './star_button.svg'
 
@@ -23,7 +25,7 @@ function CartPage(): JSX.Element {
   const [order, setOrder] = useState(false);
   const [succsess, setSuccsess] = useState(false);
   const [text, setText] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleOrderButton = (): void => {
     setOrder(true);
@@ -111,6 +113,11 @@ function CartPage(): JSX.Element {
           )}
         </>
       )}
+              <div className={styles.linkBack}>
+        <Link to="#" onFocus={() => navigate(-1)}>
+            <img src={ARRAYBACK} alt="array back" />
+          </Link>
+          </div>
     </div>
   );
 }

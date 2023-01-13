@@ -1,11 +1,14 @@
 import { useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { selectItems } from '../selectors';
 
 import styles from './itemPage.module.css';
+import ARRAYBACK from "./ARRAYBACK.svg";
+
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../cart/cartSlice';
 import { useState } from 'react';
+
 
 function ItemPage(): JSX.Element {
   const { id } = useParams();
@@ -22,7 +25,7 @@ function ItemPage(): JSX.Element {
   };
 
   return (
-    
+    <div>
     <div className={styles.card}>
       <div className={styles.pic}>
         <img src={item!.img} className="card-img" alt="..." />
@@ -38,9 +41,6 @@ function ItemPage(): JSX.Element {
           <button onClick={handleByeClick} className={styles.buyButton}>
             Купить
           </button>
-          <button onClick={() => navigate(-1)} className={styles.buyButton}>
-            Назад
-          </button>
         </div>
 
         {text && (
@@ -49,6 +49,12 @@ function ItemPage(): JSX.Element {
           </div>
         )}
       </div>
+    </div>
+        <div className={styles.linkBack}>
+        <Link to="#" onFocus={() => navigate(-1)}>
+            <img src={ARRAYBACK} alt="array back" />
+          </Link>
+          </div>
     </div>
   );
 }

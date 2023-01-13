@@ -7,7 +7,9 @@ import Item, { ItemId } from '../types/Item';
 import { itemDeleted, itemUpdated } from '../itemsSlice';
 import { useAppDispatch } from '../../../store';
 import { useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+
+import ARRAYBACK from './ARRAYBACK.svg'
 
 function Search(): JSX.Element {
   const [searchParams] = useSearchParams();
@@ -16,6 +18,8 @@ function Search(): JSX.Element {
   const loadError = useSelector(selectLoaderror);
   const dispatch = useAppDispatch();
   const items = useSelector(selectItems);
+
+  const navigate = useNavigate()
 
   const searchItems = useMemo(() => {
     return items.filter((item) => item.name === query);
@@ -45,6 +49,11 @@ function Search(): JSX.Element {
           ))
         )}
       </div>
+      <div className={styles.linkBack}>
+        <Link to="#" onFocus={() => navigate(-1)}>
+            <img src={ARRAYBACK} alt="array back" />
+          </Link>
+          </div>
     </div>
   );
 }

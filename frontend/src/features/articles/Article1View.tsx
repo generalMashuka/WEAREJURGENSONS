@@ -1,5 +1,5 @@
 import styles from "./articles.module.css";
-// import furoshik1 from "./img/61039BAE-CDA6-414D-8626-90F3BFA325A9.jpg";
+import ARRAYBACK from "./img/ARRAYBACK.svg";
 // import furoshik2 from "./img/IMG_0095.jpg";
 // import furoshik3 from "./img/61039BAE-CDA6-414D-8626-90F3BFA325A9.jpeg";
 import { Link } from "react-router-dom";
@@ -51,9 +51,10 @@ function Article1View(): JSX.Element {
           <img className={styles.img2} src="https://redmeter.ru/upload/medialibrary/b47/versu5d5o47l8jdkg01nzjlpsxmrqicy.jpg"alt="фурошик" />
       
         </div>
+        import ARRAYBACK from "./img/ARRAYBACK.svg";
         <div className={styles.linkBack}>
         <Link to="#" onFocus={() => navigate(-1)}>
-            Назад
+            <img src={ARRAYBACK} alt="array back" />
           </Link>
           </div>
     </div>

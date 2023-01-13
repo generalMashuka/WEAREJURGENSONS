@@ -49,7 +49,7 @@ function NavBar(): JSX.Element {
     <div className={styles.mainContainer}>
       <nav className={styles.header}>
         <Link to="/" style={{ fontSize: '24px' }}>
-          <img src={logo} alt="logo" />
+          <img className={styles.logo} src={logo} alt="logo" />
         </Link>
 
         <div className={styles.buttoncontainer}>
