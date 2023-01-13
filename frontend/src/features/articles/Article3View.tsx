@@ -3,6 +3,9 @@ import styles from "./articles.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+import ARRAYBACK from "./img/ARRAYBACK.svg";
+
+
 function Article3View(): JSX.Element {
   const navigate = useNavigate();
 
@@ -73,9 +76,9 @@ function Article3View(): JSX.Element {
       </div>
       <div className={styles.linkBack}>
         <Link to="#" onFocus={() => navigate(-1)}>
-          Назад
-        </Link>
-      </div>
+            <img src={ARRAYBACK} alt="array back" />
+          </Link>
+          </div>
     </div>
   );
 }

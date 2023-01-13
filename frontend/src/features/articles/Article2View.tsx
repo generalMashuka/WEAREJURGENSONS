@@ -1,5 +1,6 @@
 import styles from "./articles.module.css";
 import textiles from "./img/Снимок экрана 2023-01-12 в 22.18.57.png"
+import ARRAYBACK from "./img/ARRAYBACK.svg";
 
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -74,9 +75,9 @@ function Article2View(): JSX.Element {
       </div>
       <div className={styles.linkBack}>
         <Link to="#" onFocus={() => navigate(-1)}>
-          Назад
-        </Link>
-      </div>
+            <img src={ARRAYBACK} alt="array back" />
+          </Link>
+          </div>
     </div>
   );
 }

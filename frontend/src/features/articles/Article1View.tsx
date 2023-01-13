@@ -51,7 +51,6 @@ function Article1View(): JSX.Element {
           <img className={styles.img2} src="https://redmeter.ru/upload/medialibrary/b47/versu5d5o47l8jdkg01nzjlpsxmrqicy.jpg"alt="фурошик" />
       
         </div>
-        import ARRAYBACK from "./img/ARRAYBACK.svg";
         <div className={styles.linkBack}>
         <Link to="#" onFocus={() => navigate(-1)}>
             <img src={ARRAYBACK} alt="array back" />
