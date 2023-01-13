@@ -8,6 +8,10 @@
     margin-bottom: 50px;
   }
 
+  .empty {
+    margin-bottom: 200px;
+  }
+
   .linkBack {
     display: flex;
     justify-content: space-around;

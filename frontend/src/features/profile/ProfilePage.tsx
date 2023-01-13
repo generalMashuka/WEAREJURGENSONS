@@ -198,6 +198,7 @@ function ProfilePage(): JSX.Element {
         <p className={styles.title}>Сформированные заказы</p>
         <OrdersView/>
       </div>
+      <div className={styles.empty}></div>
     </div>
   );
 }

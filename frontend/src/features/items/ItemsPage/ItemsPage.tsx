@@ -77,19 +77,20 @@ function ItemsPage(): JSX.Element {
         >
           Убыванию цены
         </button>{' '}
-        <button
-          className={styles.btnDelet}
-          type="button"
-          onClick={handleSetDefault}
-        >
-          Сбросить фильтры
-        </button>{' '}
         <select className={styles.input} onChange={handleSortedCategory}>
           <option value="1">Изделия из дерева</option>
           <option value="2">Ковры</option>
           <option value="3">Керамика</option>
           <option value="4">Текстиль</option>
         </select>
+        {' '}
+        <button
+          className={styles.btnDelet}
+          type="button"
+          onClick={handleSetDefault}
+        >
+          Сбросить фильтры
+        </button>
       </div>
 
       <div className={styles.cards}>
@@ -106,6 +107,7 @@ function ItemsPage(): JSX.Element {
           ))
         )}
       </div>
+      <div className={styles.empty}></div>
     </div>
   );
 }

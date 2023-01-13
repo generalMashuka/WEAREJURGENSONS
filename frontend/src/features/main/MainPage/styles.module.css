@@ -118,6 +118,7 @@ html {
   margin-left: 50%;
   margin-right: 50%;
   font-size: 29px;
+  white-space: nowrap;
 }
 
 .upButton {

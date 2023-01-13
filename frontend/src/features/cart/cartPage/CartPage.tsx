@@ -3,20 +3,19 @@ import {
   decrementQuantity,
   removeItem,
   createOrder,
-} from '../../cart/cartSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems } from '../../items/selectors';
-import CartItemView from '../cartItem/CartItemView';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../store';
-import Total from '../total/Total';
-import styles from './Cart.module.css';
-import ARRAYBACK from './ARRAYBACK.svg'
+} from "../../cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItems } from "../../items/selectors";
+import CartItemView from "../cartItem/CartItemView";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../store";
+import Total from "../total/Total";
+import styles from "./Cart.module.css";
+import ARRAYBACK from "./ARRAYBACK.svg";
 
-import done from './done.jpg'
-import star from './star_button.svg'
-
+import done from "./done.jpg";
+import star from "./star_button.svg";
 
 function CartPage(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -24,7 +23,7 @@ function CartPage(): JSX.Element {
 
   const [order, setOrder] = useState(false);
   const [succsess, setSuccsess] = useState(false);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const navigate = useNavigate();
 
   const handleOrderButton = (): void => {
@@ -46,25 +45,26 @@ function CartPage(): JSX.Element {
 
   return (
     <div className={styles.cart}>
-
       <p className={styles.cartTiitle}>Корзина</p>
 
       {succsess ? (
         <div className={styles.alertBox}>
-           <p className={styles.cartText}>Заказ оформлен! C Вами свяжется наш менеджер.</p>
-           <div>
-           <img className={styles.img} src={done} alt="" />
-           </div>
-           <img className={styles.star} src={star} alt="" />
-           
+          <p className={styles.cartText}>
+            Заказ оформлен! C Вами свяжется наш менеджер.
+          </p>
+          <div>
+            <img className={styles.img} src={done} alt="" />
+          </div>
+          <img className={styles.star} src={star} alt="" />
         </div>
-        
       ) : (
         <>
           <div className={styles.items}>
-            { cartItems.length === 0 && (
+            {cartItems.length === 0 && (
               <div>
-                <p className={styles.cartText}>Ваша корзина пуста. Перейдите в каталог для добавления товара</p>
+                <p className={styles.cartText}>
+                  Ваша корзина пуста. Перейдите в каталог для добавления товара
+                </p>
               </div>
             )}
             {cartItems?.map((item) => (
@@ -73,23 +73,21 @@ function CartPage(): JSX.Element {
           </div>
           {order ? (
             <div>
-              { cartItems.length !== 0 && (
-              <div>
-              <Total />
-            </div>
-              ) }
+              {cartItems.length !== 0 && (
+                <div>
+                  <Total />
+                </div>
+              )}
               <form onSubmit={handleSend}>
-
-              <p>Оставьте контактные данные для оформления заказа</p>
+                <p>Оставьте контактные данные для оформления заказа</p>
                 <input
                   className={styles.input}
                   required
-                  placeholder='+7999 000-00-00 Whatsapp'
-
+                  placeholder="+7999 000-00-00 Whatsapp"
                   value={text}
                   onChange={handleTextInput}
                 />
-                
+
                 <button className={styles.btnDelet} type="submit">
                   Подтвердить оформление заказа
                 </button>
@@ -98,26 +96,30 @@ function CartPage(): JSX.Element {
           ) : (
             <div>
               <div className={styles.btn}>
-              { cartItems.length !== 0 && (
-              <div>
-              <Total />
-            </div>
-              ) }
-              { cartItems.length !== 0 && (
-                <button className={styles.btnDelet} onClick={handleOrderButton}>
-                Оформить заказ
-              </button>
-              )}
+                {cartItems.length !== 0 && (
+                  <div>
+                    <Total />
+                  </div>
+                )}
+                {cartItems.length !== 0 && (
+                  <button
+                    className={styles.btnDelet}
+                    onClick={handleOrderButton}
+                  >
+                    Оформить заказ
+                  </button>
+                )}
               </div>
             </div>
           )}
         </>
       )}
-              <div className={styles.linkBack}>
+      <div className={styles.linkBack}>
         <Link to="#" onFocus={() => navigate(-1)}>
-            <img src={ARRAYBACK} alt="array back" />
-          </Link>
-          </div>
+          <img src={ARRAYBACK} alt="array back" />
+        </Link>
+      </div>
+      <div className={styles.empty}></div>
     </div>
   );
 }
